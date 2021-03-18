@@ -1,0 +1,11 @@
+<RegularExpressions title="smiles">
+	<regex id="1"> 
+        <step>
+			<keys>
+				<key>smiles</key>
+				<key>fragment</key>
+			</keys>
+			<command>(?P&lt;smiles&gt;\S+)\s(?P&lt;name&gt;.+)</command>
+		</step>
+    </regex>
+</RegularExpressions>

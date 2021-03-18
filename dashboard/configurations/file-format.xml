@@ -1,0 +1,17 @@
+<RegularExpressions title="file-format">
+	<regex id="1"> 
+        <step>
+			<keys>
+				<key>parent</key>
+				<key>parentGivenId</key>
+				<key>calcType</key>
+				<key>calcNumber</key>
+				<key>h</key>
+				<key>funcGroup</key>
+				<key>fileName</key>
+				<key>extension</key>
+			</keys>
+			<command>.+\\molecules\\(?P&lt;parent&gt;.+)\\((?P&lt;parentGivenId&gt;\d+)-(?P&lt;calcType&gt;\S+)=(?P&lt;calcNumber&gt;\d+)-H=(?P&lt;h&gt;\d+)-Func=(?P&lt;funcGroup&gt;\S+))\\(?P&lt;fileName&gt;.+)\.(?P&lt;extension&gt;.+)</command>
+		</step>
+    </regex>
+</RegularExpressions>

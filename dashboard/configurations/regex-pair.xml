@@ -1,0 +1,12 @@
+<RegularExpressions title="regex-pair">
+	<regex id="1"> 
+        <step>
+			<keys>
+				<key>smiles</key>
+				<key>name</key>
+				<key>enumerationToolStatement</key>
+			</keys>
+			<command>(?P&lt;smiles&gt;\S+)\s+(?P&lt;name&gt;.+)\s+\[(?P&lt;enumerationToolStatement&gt;.+)\]</command>
+		</step>
+    </regex>
+</RegularExpressions>

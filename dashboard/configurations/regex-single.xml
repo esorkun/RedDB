@@ -1,0 +1,938 @@
+<RegularExpressions title="single">
+    <regex id="1"> 
+		<step>
+			<keys>
+				<key>jobId</key>
+			</keys>
+			<command>jobid: (?P&lt;jobId&gt;.+)\s+</command>
+		</step>
+    </regex>
+    <regex id="2"> 
+		<step>
+			<keys>
+				<key>jobName</key>
+			</keys>
+			<command>(\s+)Job name:\s+(?P&lt;jobName&gt;[\S\s]*?)\s+Exe</command>
+		</step>
+    </regex>
+    	<regex id="3"> 
+		<step>
+			<keys>
+				<key>basisSet</key>
+			</keys>
+			<command>basis set:\s+(?P&lt;basisSet&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    	<regex id="4"> 
+		<step>
+			<keys>
+				<key>netMolecularCharge</key>
+			</keys>
+			<command>net molecular charge:\s+(?P&lt;netMolecularCharge&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="5"> 
+		<step>
+			<keys>
+				<key>multiplicity</key>
+			</keys>
+			<command>multiplicity:\s+(?P&lt;multiplicity&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="6"> 
+		<step>
+			<keys>
+				<key>basisFunctions</key>
+			</keys>
+			<command>number of basis functions....\s+(?P&lt;basisFunctions&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="7"> 
+		<step>
+			<keys>
+				<key>molecularWeight</key>
+			</keys>
+			<command>Molecular weight:\s+(?P&lt;molecularWeight&gt;\S+)\s+amu</command>
+		</step>
+    </regex>
+    <regex id="8"> 
+		<step>
+			<keys>
+				<key>stoichiometry</key>
+			</keys>
+			<command>Stoichiometry:\s+(?P&lt;stoichiometry&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="9"> 
+		<step>
+			<keys>
+				<key>molecularPointGroup</key>
+			</keys>
+			<command>Molecular Point Group:\s+(?P&lt;molecularPointGroup&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="10"> 
+		<step>
+			<keys>
+				<key>pointGroupUsed</key>
+			</keys>
+			<command>Point Group used:\s+(?P&lt;pointGroupUsed&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="11"> 
+		<step>
+			<keys>
+				<key>nuclearRepulsionEnergy</key>
+			</keys>
+			<command>nuclear repulsion energy.......\s+(?P&lt;nuclearRepulsionEnergy&gt;\S+)\s+hartrees</command>
+		</step>
+    </regex>
+    <regex id="12"> 
+		<step>
+			<keys>
+				<key>scfCalculation</key>
+				<key>dft</key>
+				<key>solvationEnergy</key>
+				<key>hyperPolEqu</key>
+				<key>maxScfIterations</key>
+			</keys>
+			<command>Non-default options chosen:\s+[\S\s]*?SCF calculation type:\s+(?P&lt;scfCalculation&gt;\S+)\s+DFT\=(?P&lt;dft&gt;\S+\s+\S+)\s+Solvation energy will be computed using\s+(?P&lt;solvationEnergy&gt;\S+)\s+\(Hyper\)polarizabilities will be computed via\s+(?P&lt;hyperPolEqu&gt;\S+)\s+equations\s+.+\s+Maximum number of SCF iterations:\s+(?P&lt;maxScfIterations&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="13"> 
+		<step>
+			<keys>
+				<key>solvent</key>
+				<key>internalDielectric</key>
+				<key>continuumDielectric</key>
+				<key>solventProbe</key>
+			</keys>
+			<command>Solvent:\s+(?P&lt;solvent&gt;\S+)\s+Internal dielectric constant:\s+(?P&lt;internalDielectric&gt;\S+)\s+Continuum dielectric constant:\s+(?P&lt;continuumDielectric&gt;\S+)\s+Solvent probe molecule radius:\s+(?P&lt;solventProbe&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="14"> 
+        <step>
+			<keys>
+				<key>GasPhaseEnergy</key>
+				<key>GasPhaseScfIter</key>
+				<key>GasPhaseHomoEnergy</key>
+				<key>GasPhaseLumoEnergy</key>
+			</keys>
+			<command>SCFE: SCF energy: DFT\(pbe\)\s+(?P&lt;GasPhaseEnergy&gt;\S+)\s+hartrees+\s+iterations:+\s+(?P&lt;GasPhaseScfIter&gt;\d+)\s+HOMO energy:\s+(?P&lt;GasPhaseHomoEnergy&gt;\S+)\s+LUMO energy:\s+(?P&lt;GasPhaseLumoEnergy&gt;\S+)\s+</command>
+		</step>
+		<step>
+			<keys>
+				<key>GasPhaseEnergy</key>
+				<key>GasPhaseScfIter</key>
+				<key>GasPhaseHomoEnergy</key>
+				<key>GasPhaseLumoEnergy</key>
+			</keys>
+			<command>&quot;(?P&lt;GasPhaseEnergy&gt;\S+)&quot;,\s+&quot;GasPhaseScfIter&quot;:\s+&quot;(?P&lt;GasPhaseScfIter&gt;\d*)&quot;,\s&quot;GasPhaseHomoEnergy&quot;:\s+&quot;(?P&lt;GasPhaseHomoEnergy&gt;\S+)&quot;,\s&quot;GasPhaseLumoEnergy&quot;:\s+&quot;(?P&lt;GasPhaseLumoEnergy&gt;\S+)&quot;}]$</command>
+		</step>
+    </regex>
+	<regex id="15"> 
+        <step>
+			<keys>
+				<key>SolutionPhaseEnergy</key>
+				<key>scfIteration</key>
+				<key>solutionHomoEnergy</key>
+				<key>solutionLumoEnergy</key>
+			</keys>
+			<command>SCFE:  Solution phase energy: DFT\(pbe\)+\s+\s+(?P&lt;SolutionPhaseEnergy&gt;\S+)\s+hartrees+\n+\s+SCF iterations:+\s+(?P&lt;scfIteration&gt;\d+)\s+HOMO energy:\s+(?P&lt;solutionHomoEnergy&gt;\S+)\s+LUMO energy:\s+(?P&lt;solutionLumoEnergy&gt;\S+)\s+</command>
+		</step>
+		<step>
+			<keys>
+				<key>SolutionPhaseEnergy</key>
+				<key>scfIteration</key>
+				<key>solutionHomoEnergy</key>
+				<key>solutionLumoEnergy</key>
+			</keys>
+			<command>&quot;(?P&lt;SolutionPhaseEnergy&gt;\S+)&quot;,\s+&quot;scfIteration&quot;:\s+&quot;(?P&lt;scfIteration&gt;\d*)&quot;,\s&quot;solutionHomoEnergy&quot;:\s+&quot;(?P&lt;solutionHomoEnergy&gt;\S+)&quot;,\s&quot;solutionLumoEnergy&quot;:\s+&quot;(?P&lt;solutionLumoEnergy&gt;\S+)&quot;}]$</command>
+		</step>
+    </regex>
+	<regex id="16"> 
+		<step>
+			<keys>
+				<key>mqmwGasDipoleMomentsX</key>
+				<key>mqmwGasDipoleMomentsY</key>
+				<key>mqmwGasDipoleMomentsZ</key>
+				<key>mqmwGasDipoleMomentsTot</key>
+				<key>mqmwGasQuadrupoleMomentsXX</key>
+				<key>mqmwGasQuadrupoleMomentsYY</key>
+				<key>mqmwGasQuadrupoleMomentsZZ</key>
+				<key>mqmwGasQuadrupoleMomentsXY</key>
+				<key>mqmwGasQuadrupoleMomentsXZ</key>
+				<key>mqmwGasQuadrupoleMomentsYZ</key>
+				<key>mqmwGasTracelessQuadrupoleXXYY</key>
+				<key>mqmwGasTracelessQuadrupol2ZZXXYY</key>
+				<key>mqmwGasTracelessQuadrupoleXY</key>
+				<key>mqmwGasTracelessQuadrupoleXZ</key>
+				<key>mqmwGasTracelessQuadrupoleYZ</key>
+				<key>mqmwGasOctapoleMomentsXXX</key>
+				<key>mqmwGasOctapoleMomentsYYY</key>
+				<key>mqmwGasOctapoleMomentsZZZ</key>
+				<key>mqmwGasOctapoleMomentsXYY</key>
+				<key>mqmwGasOctapoleMomentsXXY</key>
+				<key>mqmwGasOctapoleMomentsXXZ</key>
+				<key>mqmwGasOctapoleMomentsXZZ</key>
+				<key>mqmwGasOctapoleMomentsYZZ</key>
+				<key>mqmwGasOctapoleMomentsYYZ</key>
+				<key>mqmwGasOctapoleMomentsXYZ</key>
+				<key>mqmwGasTracelessOctapoleXXX</key>
+				<key>mqmwGasTracelessOctapoleYYY</key>
+				<key>mqmwGasTracelessOctapoleZZZ</key>
+				<key>mqmwGasTracelessOctapoleXYZ</key>
+				<key>mqmwGasTracelessOctapoleXYYXZZ</key>
+				<key>mqmwGasTracelessOctapoleXXYYZZ</key>
+				<key>mqmwGasTracelessOctapoleXXZYYZ</key>
+				<key>mqmwGasHexadecapoleMomentsXXXX</key>
+				<key>mqmwGasHexadecapoleMomentsYYYY</key>
+				<key>mqmwGasHexadecapoleMomentsZZZZ</key>
+				<key>mqmwGasHexadecapoleMomentsXXXY</key>
+				<key>mqmwGasHexadecapoleMomentsXXXZ</key>
+				<key>mqmwGasHexadecapoleMomentsYYYX</key>
+				<key>mqmwGasHexadecapoleMomentsYYYZ</key>
+				<key>mqmwGasHexadecapoleMomentsZZZX</key>
+				<key>mqmwGasHexadecapoleMomentsZZZY</key>
+				<key>mqmwGasHexadecapoleMomentsXXYY</key>
+				<key>mqmwGasHexadecapoleMomentsXXZZ</key>
+				<key>mqmwGasHexadecapoleMomentsYYZZ</key>
+				<key>mqmwGasHexadecapoleMomentsXXYZ</key>
+				<key>mqmwGasHexadecapoleMomentsYYXZ</key>
+				<key>mqmwGasHexadecapoleMomentsZZXY</key>
+				<key>mqmwGasGridpointsChargeFit</key>
+				<key>mqmwGasPossibleMaximum</key>
+			</keys>
+			<command>Moments from quantum mechanical wavefunction:\s+Dipole Moments  \(Debye\)\s+X=(\s+|)(?P&lt;mqmwGasDipoleMomentsX&gt;\S+)\s+Y=(\s+|)(?P&lt;mqmwGasDipoleMomentsY&gt;\S+)\s+Z=(\s+|)(?P&lt;mqmwGasDipoleMomentsZ&gt;\S+)\s+Tot=(\s+|)(?P&lt;mqmwGasDipoleMomentsTot&gt;\S+)\s+Quadrupole Moments  \(Debye-Ang\)\s+XX=(\s+|)(?P&lt;mqmwGasQuadrupoleMomentsXX&gt;\S+)\s+YY=(\s+|)(?P&lt;mqmwGasQuadrupoleMomentsYY&gt;\S+)\s+ZZ=(\s+|)(?P&lt;mqmwGasQuadrupoleMomentsZZ&gt;\S+)\s+XY=(\s+|)(?P&lt;mqmwGasQuadrupoleMomentsXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mqmwGasQuadrupoleMomentsXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mqmwGasQuadrupoleMomentsYZ&gt;\S+)\s+Traceless Quadrupole Moments  \(Debye-Ang\)\s+XX-YY=(\s+|)(?P&lt;mqmwGasTracelessQuadrupoleXXYY&gt;\S+)\s+2ZZ-XX-YY=(\s+|)(?P&lt;mqmwGasTracelessQuadrupol2ZZXXYY&gt;\S+)\s+XY=(\s+|)(?P&lt;mqmwGasTracelessQuadrupoleXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mqmwGasTracelessQuadrupoleXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mqmwGasTracelessQuadrupoleYZ&gt;\S+)\s+(Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mqmwGasOctapoleMomentsXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mqmwGasOctapoleMomentsYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mqmwGasOctapoleMomentsZZZ&gt;\S+)\s+XYY=(\s+|)(?P&lt;mqmwGasOctapoleMomentsXYY&gt;\S+)\s+XXY=(\s+|)(?P&lt;mqmwGasOctapoleMomentsXXY&gt;\S+)\s+XXZ=(\s+|)(?P&lt;mqmwGasOctapoleMomentsXXZ&gt;\S+)\s+XZZ=(\s+|)(?P&lt;mqmwGasOctapoleMomentsXZZ&gt;\S+)\s+YZZ=(\s+|)(?P&lt;mqmwGasOctapoleMomentsYZZ&gt;\S+)\s+YYZ=(\s+|)(?P&lt;mqmwGasOctapoleMomentsYYZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mqmwGasOctapoleMomentsXYZ&gt;\S+)\s+Traceless (Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mqmwGasTracelessOctapoleXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mqmwGasTracelessOctapoleYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mqmwGasTracelessOctapoleZZZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mqmwGasTracelessOctapoleXYZ&gt;\S+)\s+XYY-XZZ=(\s+|)(?P&lt;mqmwGasTracelessOctapoleXYYXZZ&gt;\S+)\s+XXY-YZZ=(\s+|)(?P&lt;mqmwGasTracelessOctapoleXXYYZZ&gt;\S+)\s+XXZ-YYZ=(\s+|)(?P&lt;mqmwGasTracelessOctapoleXXZYYZ&gt;\S+)\s+Hexadecapole Moments  \(Debye-Ang\*\*3\)\s+XXXX=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsXXXX&gt;\S+)\s+YYYY=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsYYYY&gt;\S+)\s+ZZZZ=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsZZZZ&gt;\S+)\s+XXXY=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsXXXY&gt;\S+)\s+XXXZ=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsXXXZ&gt;\S+)\s+YYYX=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsYYYX&gt;\S+)\s+YYYZ=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsYYYZ&gt;\S+)\s+ZZZX=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsZZZX&gt;\S+)\s+ZZZY=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsZZZY&gt;\S+)\s+XXYY=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsXXYY&gt;\S+)\s+XXZZ=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsXXZZ&gt;\S+)\s+YYZZ=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsYYZZ&gt;\S+)\s+XXYZ=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsXXYZ&gt;\S+)\s+YYXZ=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsYYXZ&gt;\S+)\s+ZZXY=(\s+|)(?P&lt;mqmwGasHexadecapoleMomentsZZXY&gt;\S+)\s+gridpoints used for charge fit\s+(?P&lt;mqmwGasGridpointsChargeFit&gt;\S+)\s+out of a possible maximum of\s+(?P&lt;mqmwGasPossibleMaximum&gt;\S+)\s+</command>
+		</step>
+		<step>
+			<keys>
+				<key>mqmwGasDipoleMomentsX</key>
+				<key>mqmwGasDipoleMomentsY</key>
+				<key>mqmwGasDipoleMomentsZ</key>
+				<key>mqmwGasDipoleMomentsTot</key>
+				<key>mqmwGasQuadrupoleMomentsXX</key>
+				<key>mqmwGasQuadrupoleMomentsYY</key>
+				<key>mqmwGasQuadrupoleMomentsZZ</key>
+				<key>mqmwGasQuadrupoleMomentsXY</key>
+				<key>mqmwGasQuadrupoleMomentsXZ</key>
+				<key>mqmwGasQuadrupoleMomentsYZ</key>
+				<key>mqmwGasTracelessQuadrupoleXXYY</key>
+				<key>mqmwGasTracelessQuadrupol2ZZXXYY</key>
+				<key>mqmwGasTracelessQuadrupoleXY</key>
+				<key>mqmwGasTracelessQuadrupoleXZ</key>
+				<key>mqmwGasTracelessQuadrupoleYZ</key>
+				<key>mqmwGasOctapoleMomentsXXX</key>
+				<key>mqmwGasOctapoleMomentsYYY</key>
+				<key>mqmwGasOctapoleMomentsZZZ</key>
+				<key>mqmwGasOctapoleMomentsXYY</key>
+				<key>mqmwGasOctapoleMomentsXXY</key>
+				<key>mqmwGasOctapoleMomentsXXZ</key>
+				<key>mqmwGasOctapoleMomentsXZZ</key>
+				<key>mqmwGasOctapoleMomentsYZZ</key>
+				<key>mqmwGasOctapoleMomentsYYZ</key>
+				<key>mqmwGasOctapoleMomentsXYZ</key>
+				<key>mqmwGasTracelessOctapoleXXX</key>
+				<key>mqmwGasTracelessOctapoleYYY</key>
+				<key>mqmwGasTracelessOctapoleZZZ</key>
+				<key>mqmwGasTracelessOctapoleXYZ</key>
+				<key>mqmwGasTracelessOctapoleXYYXZZ</key>
+				<key>mqmwGasTracelessOctapoleXXYYZZ</key>
+				<key>mqmwGasTracelessOctapoleXXZYYZ</key>
+				<key>mqmwGasHexadecapoleMomentsXXXX</key>
+				<key>mqmwGasHexadecapoleMomentsYYYY</key>
+				<key>mqmwGasHexadecapoleMomentsZZZZ</key>
+				<key>mqmwGasHexadecapoleMomentsXXXY</key>
+				<key>mqmwGasHexadecapoleMomentsXXXZ</key>
+				<key>mqmwGasHexadecapoleMomentsYYYX</key>
+				<key>mqmwGasHexadecapoleMomentsYYYZ</key>
+				<key>mqmwGasHexadecapoleMomentsZZZX</key>
+				<key>mqmwGasHexadecapoleMomentsZZZY</key>
+				<key>mqmwGasHexadecapoleMomentsXXYY</key>
+				<key>mqmwGasHexadecapoleMomentsXXZZ</key>
+				<key>mqmwGasHexadecapoleMomentsYYZZ</key>
+				<key>mqmwGasHexadecapoleMomentsXXYZ</key>
+				<key>mqmwGasHexadecapoleMomentsYYXZ</key>
+				<key>mqmwGasHexadecapoleMomentsZZXY</key>
+				<key>mqmwGasGridpointsChargeFit</key>
+				<key>mqmwGasPossibleMaximum</key>
+			</keys>
+			<command>^\[{&quot;mqmwGasDipoleMomentsX&quot;:\s+&quot;(?P&lt;mqmwGasDipoleMomentsX&gt;\S+)&quot;,\s+&quot;mqmwGasDipoleMomentsY&quot;:\s+&quot;(?P&lt;mqmwGasDipoleMomentsY&gt;\S+)&quot;,\s&quot;mqmwGasDipoleMomentsZ&quot;:\s+&quot;(?P&lt;mqmwGasDipoleMomentsZ&gt;\S+)&quot;,\s&quot;mqmwGasDipoleMomentsTot&quot;:\s+&quot;(?P&lt;mqmwGasDipoleMomentsTot&gt;\S+)&quot;,\s+&quot;mqmwGasQuadrupoleMomentsXX&quot;:\s+&quot;(?P&lt;mqmwGasQuadrupoleMomentsXX&gt;\S+)&quot;,\s&quot;mqmwGasQuadrupoleMomentsYY&quot;:\s+&quot;(?P&lt;mqmwGasQuadrupoleMomentsYY&gt;\S+)&quot;,\s&quot;mqmwGasQuadrupoleMomentsZZ&quot;:\s+&quot;(?P&lt;mqmwGasQuadrupoleMomentsZZ&gt;\S+)&quot;,\s+&quot;mqmwGasQuadrupoleMomentsXY&quot;:\s+&quot;(?P&lt;mqmwGasQuadrupoleMomentsXY&gt;\S+)&quot;,\s&quot;mqmwGasQuadrupoleMomentsXZ&quot;:\s+&quot;(?P&lt;mqmwGasQuadrupoleMomentsXZ&gt;\S+)&quot;,\s&quot;mqmwGasQuadrupoleMomentsYZ&quot;:\s+&quot;(?P&lt;mqmwGasQuadrupoleMomentsYZ&gt;\S+)&quot;,\s+&quot;mqmwGasTracelessQuadrupoleXXYY&quot;:\s+&quot;(?P&lt;mqmwGasTracelessQuadrupoleXXYY&gt;\S+)&quot;,\s&quot;mqmwGasTracelessQuadrupol2ZZXXYY&quot;:\s+&quot;(?P&lt;mqmwGasTracelessQuadrupol2ZZXXYY&gt;\S+)&quot;,\s&quot;mqmwGasTracelessQuadrupoleXY&quot;:\s+&quot;(?P&lt;mqmwGasTracelessQuadrupoleXY&gt;\S+)&quot;,\s+&quot;mqmwGasTracelessQuadrupoleXZ&quot;:\s+&quot;(?P&lt;mqmwGasTracelessQuadrupoleXZ&gt;\S+)&quot;,\s&quot;mqmwGasTracelessQuadrupoleYZ&quot;:\s+&quot;(?P&lt;mqmwGasTracelessQuadrupoleYZ&gt;\S+)&quot;,\s&quot;mqmwGasOctapoleMomentsXXX&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsXXX&gt;\S+)&quot;,\s+&quot;mqmwGasOctapoleMomentsYYY&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsYYY&gt;\S+)&quot;,\s&quot;mqmwGasOctapoleMomentsZZZ&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsZZZ&gt;\S+)&quot;,\s&quot;mqmwGasOctapoleMomentsXYY&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsXYY&gt;\S+)&quot;,\s+&quot;mqmwGasOctapoleMomentsXXY&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsXXY&gt;\S+)&quot;,\s&quot;mqmwGasOctapoleMomentsXXZ&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsXXZ&gt;\S+)&quot;,\s&quot;mqmwGasOctapoleMomentsXZZ&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsXZZ&gt;\S+)&quot;,\s+&quot;mqmwGasOctapoleMomentsYZZ&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsYZZ&gt;\S+)&quot;,\s&quot;mqmwGasOctapoleMomentsYYZ&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsYYZ&gt;\S+)&quot;,\s&quot;mqmwGasOctapoleMomentsXYZ&quot;:\s+&quot;(?P&lt;mqmwGasOctapoleMomentsXYZ&gt;\S+)&quot;,\s+&quot;mqmwGasTracelessOctapoleXXX&quot;:\s+&quot;(?P&lt;mqmwGasTracelessOctapoleXXX&gt;\S+)&quot;,\s&quot;mqmwGasTracelessOctapoleYYY&quot;:\s+&quot;(?P&lt;mqmwGasTracelessOctapoleYYY&gt;\S+)&quot;,\s&quot;mqmwGasTracelessOctapoleZZZ&quot;:\s+&quot;(?P&lt;mqmwGasTracelessOctapoleZZZ&gt;\S+)&quot;,\s+&quot;mqmwGasTracelessOctapoleXYZ&quot;:\s+&quot;(?P&lt;mqmwGasTracelessOctapoleXYZ&gt;\S+)&quot;,\s&quot;mqmwGasTracelessOctapoleXYYXZZ&quot;:\s+&quot;(?P&lt;mqmwGasTracelessOctapoleXYYXZZ&gt;\S+)&quot;,\s&quot;mqmwGasTracelessOctapoleXXYYZZ&quot;:\s+&quot;(?P&lt;mqmwGasTracelessOctapoleXXYYZZ&gt;\S+)&quot;,\s+&quot;mqmwGasTracelessOctapoleXXZYYZ&quot;:\s+&quot;(?P&lt;mqmwGasTracelessOctapoleXXZYYZ&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsXXXX&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsXXXX&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsYYYY&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsYYYY&gt;\S+)&quot;,\s+&quot;mqmwGasHexadecapoleMomentsZZZZ&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsZZZZ&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsXXXY&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsXXXY&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsXXXZ&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsXXXZ&gt;\S+)&quot;,\s+&quot;mqmwGasHexadecapoleMomentsYYYX&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsYYYX&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsYYYZ&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsYYYZ&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsZZZX&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsZZZX&gt;\S+)&quot;,\s+&quot;mqmwGasHexadecapoleMomentsZZZY&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsZZZY&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsXXYY&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsXXYY&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsXXZZ&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsXXZZ&gt;\S+)&quot;,\s+&quot;mqmwGasHexadecapoleMomentsYYZZ&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsYYZZ&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsXXYZ&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsXXYZ&gt;\S+)&quot;,\s&quot;mqmwGasHexadecapoleMomentsYYXZ&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsYYXZ&gt;\S+)&quot;,\s+&quot;mqmwGasHexadecapoleMomentsZZXY&quot;:\s+&quot;(?P&lt;mqmwGasHexadecapoleMomentsZZXY&gt;\S+)&quot;,\s&quot;mqmwGasGridpointsChargeFit&quot;:\s+&quot;(?P&lt;mqmwGasGridpointsChargeFit&gt;\S+)&quot;,\s&quot;mqmwGasPossibleMaximum&quot;:\s+&quot;(?P&lt;mqmwGasPossibleMaximum&gt;\S+)&quot;},</command>
+		</step>
+    </regex>
+    <regex id="17"> 
+		<step>
+			<keys>
+				<key>mqmwDipoleMomentsX</key>
+				<key>mqmwDipoleMomentsY</key>
+				<key>mqmwDipoleMomentsZ</key>
+				<key>mqmwDipoleMomentsTot</key>
+				<key>mqmwQuadrupoleMomentsXX</key>
+				<key>mqmwQuadrupoleMomentsYY</key>
+				<key>mqmwQuadrupoleMomentsZZ</key>
+				<key>mqmwQuadrupoleMomentsXY</key>
+				<key>mqmwQuadrupoleMomentsXZ</key>
+				<key>mqmwQuadrupoleMomentsYZ</key>
+				<key>mqmwTracelessQuadrupoleXXYY</key>
+				<key>mqmwTracelessQuadrupol2ZZXXYY</key>
+				<key>mqmwTracelessQuadrupoleXY</key>
+				<key>mqmwTracelessQuadrupoleXZ</key>
+				<key>mqmwTracelessQuadrupoleYZ</key>
+				<key>mqmwOctapoleMomentsXXX</key>
+				<key>mqmwOctapoleMomentsYYY</key>
+				<key>mqmwOctapoleMomentsZZZ</key>
+				<key>mqmwOctapoleMomentsXYY</key>
+				<key>mqmwOctapoleMomentsXXY</key>
+				<key>mqmwOctapoleMomentsXXZ</key>
+				<key>mqmwOctapoleMomentsXZZ</key>
+				<key>mqmwOctapoleMomentsYZZ</key>
+				<key>mqmwOctapoleMomentsYYZ</key>
+				<key>mqmwOctapoleMomentsXYZ</key>
+				<key>mqmwTracelessOctapoleXXX</key>
+				<key>mqmwTracelessOctapoleYYY</key>
+				<key>mqmwTracelessOctapoleZZZ</key>
+				<key>mqmwTracelessOctapoleXYZ</key>
+				<key>mqmwTracelessOctapoleXYYXZZ</key>
+				<key>mqmwTracelessOctapoleXXYYZZ</key>
+				<key>mqmwTracelessOctapoleXXZYYZ</key>
+				<key>mqmwHexadecapoleMomentsXXXX</key>
+				<key>mqmwHexadecapoleMomentsYYYY</key>
+				<key>mqmwHexadecapoleMomentsZZZZ</key>
+				<key>mqmwHexadecapoleMomentsXXXY</key>
+				<key>mqmwHexadecapoleMomentsXXXZ</key>
+				<key>mqmwHexadecapoleMomentsYYYX</key>
+				<key>mqmwHexadecapoleMomentsYYYZ</key>
+				<key>mqmwHexadecapoleMomentsZZZX</key>
+				<key>mqmwHexadecapoleMomentsZZZY</key>
+				<key>mqmwHexadecapoleMomentsXXYY</key>
+				<key>mqmwHexadecapoleMomentsXXZZ</key>
+				<key>mqmwHexadecapoleMomentsYYZZ</key>
+				<key>mqmwHexadecapoleMomentsXXYZ</key>
+				<key>mqmwHexadecapoleMomentsYYXZ</key>
+				<key>mqmwHexadecapoleMomentsZZXY</key>
+				<key>mqmwGridpointsChargeFit</key>
+				<key>mqmwPossibleMaximum</key>
+			</keys>
+			<command>Moments from quantum mechanical wavefunction:\s+Dipole Moments  \(Debye\)\s+X=(\s+|)(?P&lt;mqmwDipoleMomentsX&gt;\S+)\s+Y=(\s+|)(?P&lt;mqmwDipoleMomentsY&gt;\S+)\s+Z=(\s+|)(?P&lt;mqmwDipoleMomentsZ&gt;\S+)\s+Tot=(\s+|)(?P&lt;mqmwDipoleMomentsTot&gt;\S+)\s+Quadrupole Moments  \(Debye-Ang\)\s+XX=(\s+|)(?P&lt;mqmwQuadrupoleMomentsXX&gt;\S+)\s+YY=(\s+|)(?P&lt;mqmwQuadrupoleMomentsYY&gt;\S+)\s+ZZ=(\s+|)(?P&lt;mqmwQuadrupoleMomentsZZ&gt;\S+)\s+XY=(\s+|)(?P&lt;mqmwQuadrupoleMomentsXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mqmwQuadrupoleMomentsXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mqmwQuadrupoleMomentsYZ&gt;\S+)\s+Traceless Quadrupole Moments  \(Debye-Ang\)\s+XX-YY=(\s+|)(?P&lt;mqmwTracelessQuadrupoleXXYY&gt;\S+)\s+2ZZ-XX-YY=(\s+|)(?P&lt;mqmwTracelessQuadrupol2ZZXXYY&gt;\S+)\s+XY=(\s+|)(?P&lt;mqmwTracelessQuadrupoleXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mqmwTracelessQuadrupoleXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mqmwTracelessQuadrupoleYZ&gt;\S+)\s+(Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mqmwOctapoleMomentsXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mqmwOctapoleMomentsYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mqmwOctapoleMomentsZZZ&gt;\S+)\s+XYY=(\s+|)(?P&lt;mqmwOctapoleMomentsXYY&gt;\S+)\s+XXY=(\s+|)(?P&lt;mqmwOctapoleMomentsXXY&gt;\S+)\s+XXZ=(\s+|)(?P&lt;mqmwOctapoleMomentsXXZ&gt;\S+)\s+XZZ=(\s+|)(?P&lt;mqmwOctapoleMomentsXZZ&gt;\S+)\s+YZZ=(\s+|)(?P&lt;mqmwOctapoleMomentsYZZ&gt;\S+)\s+YYZ=(\s+|)(?P&lt;mqmwOctapoleMomentsYYZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mqmwOctapoleMomentsXYZ&gt;\S+)\s+Traceless (Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mqmwTracelessOctapoleXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mqmwTracelessOctapoleYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mqmwTracelessOctapoleZZZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mqmwTracelessOctapoleXYZ&gt;\S+)\s+XYY-XZZ=(\s+|)(?P&lt;mqmwTracelessOctapoleXYYXZZ&gt;\S+)\s+XXY-YZZ=(\s+|)(?P&lt;mqmwTracelessOctapoleXXYYZZ&gt;\S+)\s+XXZ-YYZ=(\s+|)(?P&lt;mqmwTracelessOctapoleXXZYYZ&gt;\S+)\s+Hexadecapole Moments  \(Debye-Ang\*\*3\)\s+XXXX=(\s+|)(?P&lt;mqmwHexadecapoleMomentsXXXX&gt;\S+)\s+YYYY=(\s+|)(?P&lt;mqmwHexadecapoleMomentsYYYY&gt;\S+)\s+ZZZZ=(\s+|)(?P&lt;mqmwHexadecapoleMomentsZZZZ&gt;\S+)\s+XXXY=(\s+|)(?P&lt;mqmwHexadecapoleMomentsXXXY&gt;\S+)\s+XXXZ=(\s+|)(?P&lt;mqmwHexadecapoleMomentsXXXZ&gt;\S+)\s+YYYX=(\s+|)(?P&lt;mqmwHexadecapoleMomentsYYYX&gt;\S+)\s+YYYZ=(\s+|)(?P&lt;mqmwHexadecapoleMomentsYYYZ&gt;\S+)\s+ZZZX=(\s+|)(?P&lt;mqmwHexadecapoleMomentsZZZX&gt;\S+)\s+ZZZY=(\s+|)(?P&lt;mqmwHexadecapoleMomentsZZZY&gt;\S+)\s+XXYY=(\s+|)(?P&lt;mqmwHexadecapoleMomentsXXYY&gt;\S+)\s+XXZZ=(\s+|)(?P&lt;mqmwHexadecapoleMomentsXXZZ&gt;\S+)\s+YYZZ=(\s+|)(?P&lt;mqmwHexadecapoleMomentsYYZZ&gt;\S+)\s+XXYZ=(\s+|)(?P&lt;mqmwHexadecapoleMomentsXXYZ&gt;\S+)\s+YYXZ=(\s+|)(?P&lt;mqmwHexadecapoleMomentsYYXZ&gt;\S+)\s+ZZXY=(\s+|)(?P&lt;mqmwHexadecapoleMomentsZZXY&gt;\S+)\s+gridpoints used for charge fit\s+(?P&lt;mqmwGridpointsChargeFit&gt;\S+)\s+out of a possible maximum of\s+(?P&lt;mqmwPossibleMaximum&gt;\S+)\s+</command>
+		</step>
+        	<step>
+			<keys>
+				<key>mqmwDipoleMomentsX</key>
+				<key>mqmwDipoleMomentsY</key>
+				<key>mqmwDipoleMomentsZ</key>
+				<key>mqmwDipoleMomentsTot</key>
+				<key>mqmwQuadrupoleMomentsXX</key>
+				<key>mqmwQuadrupoleMomentsYY</key>
+				<key>mqmwQuadrupoleMomentsZZ</key>
+				<key>mqmwQuadrupoleMomentsXY</key>
+				<key>mqmwQuadrupoleMomentsXZ</key>
+				<key>mqmwQuadrupoleMomentsYZ</key>
+				<key>mqmwTracelessQuadrupoleXXYY</key>
+				<key>mqmwTracelessQuadrupol2ZZXXYY</key>
+				<key>mqmwTracelessQuadrupoleXY</key>
+				<key>mqmwTracelessQuadrupoleXZ</key>
+				<key>mqmwTracelessQuadrupoleYZ</key>
+				<key>mqmwOctapoleMomentsXXX</key>
+				<key>mqmwOctapoleMomentsYYY</key>
+				<key>mqmwOctapoleMomentsZZZ</key>
+				<key>mqmwOctapoleMomentsXYY</key>
+				<key>mqmwOctapoleMomentsXXY</key>
+				<key>mqmwOctapoleMomentsXXZ</key>
+				<key>mqmwOctapoleMomentsXZZ</key>
+				<key>mqmwOctapoleMomentsYZZ</key>
+				<key>mqmwOctapoleMomentsYYZ</key>
+				<key>mqmwOctapoleMomentsXYZ</key>
+				<key>mqmwTracelessOctapoleXXX</key>
+				<key>mqmwTracelessOctapoleYYY</key>
+				<key>mqmwTracelessOctapoleZZZ</key>
+				<key>mqmwTracelessOctapoleXYZ</key>
+				<key>mqmwTracelessOctapoleXYYXZZ</key>
+				<key>mqmwTracelessOctapoleXXYYZZ</key>
+				<key>mqmwTracelessOctapoleXXZYYZ</key>
+				<key>mqmwHexadecapoleMomentsXXXX</key>
+				<key>mqmwHexadecapoleMomentsYYYY</key>
+				<key>mqmwHexadecapoleMomentsZZZZ</key>
+				<key>mqmwHexadecapoleMomentsXXXY</key>
+				<key>mqmwHexadecapoleMomentsXXXZ</key>
+				<key>mqmwHexadecapoleMomentsYYYX</key>
+				<key>mqmwHexadecapoleMomentsYYYZ</key>
+				<key>mqmwHexadecapoleMomentsZZZX</key>
+				<key>mqmwHexadecapoleMomentsZZZY</key>
+				<key>mqmwHexadecapoleMomentsXXYY</key>
+				<key>mqmwHexadecapoleMomentsXXZZ</key>
+				<key>mqmwHexadecapoleMomentsYYZZ</key>
+				<key>mqmwHexadecapoleMomentsXXYZ</key>
+				<key>mqmwHexadecapoleMomentsYYXZ</key>
+				<key>mqmwHexadecapoleMomentsZZXY</key>
+				<key>mqmwGridpointsChargeFit</key>
+				<key>mqmwPossibleMaximum</key>
+			</keys>
+			<command>&quot;mqmwDipoleMomentsX&quot;:\s+&quot;(?P&lt;mqmwDipoleMomentsX&gt;\S+)&quot;,\s+&quot;mqmwDipoleMomentsY&quot;:\s+&quot;(?P&lt;mqmwDipoleMomentsY&gt;\S+)&quot;,\s&quot;mqmwDipoleMomentsZ&quot;:\s+&quot;(?P&lt;mqmwDipoleMomentsZ&gt;\S+)&quot;,\s&quot;mqmwDipoleMomentsTot&quot;:\s+&quot;(?P&lt;mqmwDipoleMomentsTot&gt;\S+)&quot;,\s+&quot;mqmwQuadrupoleMomentsXX&quot;:\s+&quot;(?P&lt;mqmwQuadrupoleMomentsXX&gt;\S+)&quot;,\s&quot;mqmwQuadrupoleMomentsYY&quot;:\s+&quot;(?P&lt;mqmwQuadrupoleMomentsYY&gt;\S+)&quot;,\s&quot;mqmwQuadrupoleMomentsZZ&quot;:\s+&quot;(?P&lt;mqmwQuadrupoleMomentsZZ&gt;\S+)&quot;,\s+&quot;mqmwQuadrupoleMomentsXY&quot;:\s+&quot;(?P&lt;mqmwQuadrupoleMomentsXY&gt;\S+)&quot;,\s&quot;mqmwQuadrupoleMomentsXZ&quot;:\s+&quot;(?P&lt;mqmwQuadrupoleMomentsXZ&gt;\S+)&quot;,\s&quot;mqmwQuadrupoleMomentsYZ&quot;:\s+&quot;(?P&lt;mqmwQuadrupoleMomentsYZ&gt;\S+)&quot;,\s+&quot;mqmwTracelessQuadrupoleXXYY&quot;:\s+&quot;(?P&lt;mqmwTracelessQuadrupoleXXYY&gt;\S+)&quot;,\s&quot;mqmwTracelessQuadrupol2ZZXXYY&quot;:\s+&quot;(?P&lt;mqmwTracelessQuadrupol2ZZXXYY&gt;\S+)&quot;,\s&quot;mqmwTracelessQuadrupoleXY&quot;:\s+&quot;(?P&lt;mqmwTracelessQuadrupoleXY&gt;\S+)&quot;,\s+&quot;mqmwTracelessQuadrupoleXZ&quot;:\s+&quot;(?P&lt;mqmwTracelessQuadrupoleXZ&gt;\S+)&quot;,\s&quot;mqmwTracelessQuadrupoleYZ&quot;:\s+&quot;(?P&lt;mqmwTracelessQuadrupoleYZ&gt;\S+)&quot;,\s&quot;mqmwOctapoleMomentsXXX&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsXXX&gt;\S+)&quot;,\s+&quot;mqmwOctapoleMomentsYYY&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsYYY&gt;\S+)&quot;,\s&quot;mqmwOctapoleMomentsZZZ&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsZZZ&gt;\S+)&quot;,\s&quot;mqmwOctapoleMomentsXYY&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsXYY&gt;\S+)&quot;,\s+&quot;mqmwOctapoleMomentsXXY&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsXXY&gt;\S+)&quot;,\s&quot;mqmwOctapoleMomentsXXZ&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsXXZ&gt;\S+)&quot;,\s&quot;mqmwOctapoleMomentsXZZ&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsXZZ&gt;\S+)&quot;,\s+&quot;mqmwOctapoleMomentsYZZ&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsYZZ&gt;\S+)&quot;,\s&quot;mqmwOctapoleMomentsYYZ&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsYYZ&gt;\S+)&quot;,\s&quot;mqmwOctapoleMomentsXYZ&quot;:\s+&quot;(?P&lt;mqmwOctapoleMomentsXYZ&gt;\S+)&quot;,\s+&quot;mqmwTracelessOctapoleXXX&quot;:\s+&quot;(?P&lt;mqmwTracelessOctapoleXXX&gt;\S+)&quot;,\s&quot;mqmwTracelessOctapoleYYY&quot;:\s+&quot;(?P&lt;mqmwTracelessOctapoleYYY&gt;\S+)&quot;,\s&quot;mqmwTracelessOctapoleZZZ&quot;:\s+&quot;(?P&lt;mqmwTracelessOctapoleZZZ&gt;\S+)&quot;,\s+&quot;mqmwTracelessOctapoleXYZ&quot;:\s+&quot;(?P&lt;mqmwTracelessOctapoleXYZ&gt;\S+)&quot;,\s&quot;mqmwTracelessOctapoleXYYXZZ&quot;:\s+&quot;(?P&lt;mqmwTracelessOctapoleXYYXZZ&gt;\S+)&quot;,\s&quot;mqmwTracelessOctapoleXXYYZZ&quot;:\s+&quot;(?P&lt;mqmwTracelessOctapoleXXYYZZ&gt;\S+)&quot;,\s+&quot;mqmwTracelessOctapoleXXZYYZ&quot;:\s+&quot;(?P&lt;mqmwTracelessOctapoleXXZYYZ&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsXXXX&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsXXXX&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsYYYY&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsYYYY&gt;\S+)&quot;,\s+&quot;mqmwHexadecapoleMomentsZZZZ&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsZZZZ&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsXXXY&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsXXXY&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsXXXZ&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsXXXZ&gt;\S+)&quot;,\s+&quot;mqmwHexadecapoleMomentsYYYX&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsYYYX&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsYYYZ&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsYYYZ&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsZZZX&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsZZZX&gt;\S+)&quot;,\s+&quot;mqmwHexadecapoleMomentsZZZY&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsZZZY&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsXXYY&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsXXYY&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsXXZZ&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsXXZZ&gt;\S+)&quot;,\s+&quot;mqmwHexadecapoleMomentsYYZZ&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsYYZZ&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsXXYZ&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsXXYZ&gt;\S+)&quot;,\s&quot;mqmwHexadecapoleMomentsYYXZ&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsYYXZ&gt;\S+)&quot;,\s+&quot;mqmwHexadecapoleMomentsZZXY&quot;:\s+&quot;(?P&lt;mqmwHexadecapoleMomentsZZXY&gt;\S+)&quot;,\s&quot;mqmwGridpointsChargeFit&quot;:\s+&quot;(?P&lt;mqmwGridpointsChargeFit&gt;\S+)&quot;,\s&quot;mqmwPossibleMaximum&quot;:\s+&quot;(?P&lt;mqmwPossibleMaximum&gt;\S+)&quot;}]$</command>
+		</step>
+    </regex>
+	<regex id="18"> 
+		<step>
+			<keys>
+				<key>mepcGasDipoleMomentsX</key>
+                <key>mepcGasDipoleMomentsY</key>
+                <key>mepcGasDipoleMomentsZ</key>
+                <key>mepcGasDipoleMomentsTot</key>
+                <key>mepcGasQuadrupoleMomentsXX</key>
+                <key>mepcGasQuadrupoleMomentsYY</key>
+                <key>mepcGasQuadrupoleMomentsZZ</key>
+                <key>mepcGasQuadrupoleMomentsXY</key>
+                <key>mepcGasQuadrupoleMomentsXZ</key>
+                <key>mepcGasQuadrupoleMomentsYZ</key>
+                <key>mepcGasTracelessQuadrupoleXXYY</key>
+                <key>mepcGasTracelessQuadrupol2ZZXXYY</key>
+                <key>mepcGasTracelessQuadrupoleXY</key>
+                <key>mepcGasTracelessQuadrupoleXZ</key>
+                <key>mepcGasTracelessQuadrupoleYZ</key>
+                <key>mepcGasOctapoleMomentsXXX</key>
+                <key>mepcGasOctapoleMomentsYYY</key>
+                <key>mepcGasOctapoleMomentsZZZ</key>
+                <key>mepcGasOctapoleMomentsXYY</key>
+                <key>mepcGasOctapoleMomentsXXY</key>
+                <key>mepcGasOctapoleMomentsXXZ</key>
+                <key>mepcGasOctapoleMomentsXZZ</key>
+                <key>mepcGasOctapoleMomentsYZZ</key>
+                <key>mepcGasOctapoleMomentsYYZ</key>
+                <key>mepcGasOctapoleMomentsXYZ</key>
+                <key>mepcGasTracelessOctapoleXXX</key>
+                <key>mepcGasTracelessOctapoleYYY</key>
+                <key>mepcGasTracelessOctapoleZZZ</key>
+                <key>mepcGasTracelessOctapoleXYZ</key>
+                <key>mepcGasTracelessOctapoleXYYXZZ</key>
+                <key>mepcGasTracelessOctapoleXXYYZZ</key>
+                <key>mepcGasTracelessOctapoleXXZYYZ</key>
+                <key>mepcGasHexadecapoleMomentsXXXX</key>
+                <key>mepcGasHexadecapoleMomentsYYYY</key>
+                <key>mepcGasHexadecapoleMomentsZZZZ</key>
+                <key>mepcGasHexadecapoleMomentsXXXY</key>
+                <key>mepcGasHexadecapoleMomentsXXXZ</key>
+                <key>mepcGasHexadecapoleMomentsYYYX</key>
+                <key>mepcGasHexadecapoleMomentsYYYZ</key>
+                <key>mepcGasHexadecapoleMomentsZZZX</key>
+                <key>mepcGasHexadecapoleMomentsZZZY</key>
+                <key>mepcGasHexadecapoleMomentsXXYY</key>
+                <key>mepcGasHexadecapoleMomentsXXZZ</key>
+                <key>mepcGasHexadecapoleMomentsYYZZ</key>
+                <key>mepcGasHexadecapoleMomentsXXYZ</key>
+                <key>mepcGasHexadecapoleMomentsYYXZ</key>
+                <key>mepcGasHexadecapoleMomentsZZXY</key> 
+			</keys>
+			<command>Moments from electrostatic potential charges:\s+Dipole Moments  \(Debye\)\s+X=(\s+|)(?P&lt;mepcGasDipoleMomentsX&gt;\S+)\s+Y=(\s+|)(?P&lt;mepcGasDipoleMomentsY&gt;\S+)\s+Z=(\s+|)(?P&lt;mepcGasDipoleMomentsZ&gt;\S+)\s+Tot=(\s+|)(?P&lt;mepcGasDipoleMomentsTot&gt;\S+)\s+Quadrupole Moments  \(Debye-Ang\)\s+XX=(\s+|)(?P&lt;mepcGasQuadrupoleMomentsXX&gt;\S+)\s+YY=(\s+|)(?P&lt;mepcGasQuadrupoleMomentsYY&gt;\S+)\s+ZZ=(\s+|)(?P&lt;mepcGasQuadrupoleMomentsZZ&gt;\S+)\s+XY=(\s+|)(?P&lt;mepcGasQuadrupoleMomentsXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mepcGasQuadrupoleMomentsXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mepcGasQuadrupoleMomentsYZ&gt;\S+)\s+Traceless Quadrupole Moments  \(Debye-Ang\)\s+XX-YY=(\s+|)(?P&lt;mepcGasTracelessQuadrupoleXXYY&gt;\S+)\s+2ZZ-XX-YY=(\s+|)(?P&lt;mepcGasTracelessQuadrupol2ZZXXYY&gt;\S+)\s+XY=(\s+|)(?P&lt;mepcGasTracelessQuadrupoleXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mepcGasTracelessQuadrupoleXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mepcGasTracelessQuadrupoleYZ&gt;\S+)\s+(Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mepcGasOctapoleMomentsXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mepcGasOctapoleMomentsYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mepcGasOctapoleMomentsZZZ&gt;\S+)\s+XYY=(\s+|)(?P&lt;mepcGasOctapoleMomentsXYY&gt;\S+)\s+XXY=(\s+|)(?P&lt;mepcGasOctapoleMomentsXXY&gt;\S+)\s+XXZ=(\s+|)(?P&lt;mepcGasOctapoleMomentsXXZ&gt;\S+)\s+XZZ=(\s+|)(?P&lt;mepcGasOctapoleMomentsXZZ&gt;\S+)\s+YZZ=(\s+|)(?P&lt;mepcGasOctapoleMomentsYZZ&gt;\S+)\s+YYZ=(\s+|)(?P&lt;mepcGasOctapoleMomentsYYZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mepcGasOctapoleMomentsXYZ&gt;\S+)\s+Traceless (Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mepcGasTracelessOctapoleXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mepcGasTracelessOctapoleYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mepcGasTracelessOctapoleZZZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mepcGasTracelessOctapoleXYZ&gt;\S+)\s+XYY-XZZ=(\s+|)(?P&lt;mepcGasTracelessOctapoleXYYXZZ&gt;\S+)\s+XXY-YZZ=(\s+|)(?P&lt;mepcGasTracelessOctapoleXXYYZZ&gt;\S+)\s+XXZ-YYZ=(\s+|)(?P&lt;mepcGasTracelessOctapoleXXZYYZ&gt;\S+)\s+Hexadecapole Moments  \(Debye-Ang\*\*3\)\s+XXXX=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsXXXX&gt;\S+)\s+YYYY=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsYYYY&gt;\S+)\s+ZZZZ=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsZZZZ&gt;\S+)\s+XXXY=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsXXXY&gt;\S+)\s+XXXZ=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsXXXZ&gt;\S+)\s+YYYX=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsYYYX&gt;\S+)\s+YYYZ=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsYYYZ&gt;\S+)\s+ZZZX=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsZZZX&gt;\S+)\s+ZZZY=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsZZZY&gt;\S+)\s+XXYY=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsXXYY&gt;\S+)\s+XXZZ=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsXXZZ&gt;\S+)\s+YYZZ=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsYYZZ&gt;\S+)\s+XXYZ=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsXXYZ&gt;\S+)\s+YYXZ=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsYYXZ&gt;\S+)\s+ZZXY=(\s+|)(?P&lt;mepcGasHexadecapoleMomentsZZXY&gt;\S+)\s+</command>
+		</step>
+        	<step>
+			<keys>
+				<key>mepcGasDipoleMomentsX</key>
+				<key>mepcGasDipoleMomentsY</key>
+				<key>mepcGasDipoleMomentsZ</key>
+				<key>mepcGasDipoleMomentsTot</key>
+				<key>mepcGasQuadrupoleMomentsXX</key>
+				<key>mepcGasQuadrupoleMomentsYY</key>
+				<key>mepcGasQuadrupoleMomentsZZ</key>
+				<key>mepcGasQuadrupoleMomentsXY</key>
+				<key>mepcGasQuadrupoleMomentsXZ</key>
+				<key>mepcGasQuadrupoleMomentsYZ</key>
+				<key>mepcGasTracelessQuadrupoleXXYY</key>
+				<key>mepcGasTracelessQuadrupol2ZZXXYY</key>
+				<key>mepcGasTracelessQuadrupoleXY</key>
+				<key>mepcGasTracelessQuadrupoleXZ</key>
+				<key>mepcGasTracelessQuadrupoleYZ</key>
+				<key>mepcGasOctapoleMomentsXXX</key>
+				<key>mepcGasOctapoleMomentsYYY</key>
+				<key>mepcGasOctapoleMomentsZZZ</key>
+				<key>mepcGasOctapoleMomentsXYY</key>
+				<key>mepcGasOctapoleMomentsXXY</key>
+				<key>mepcGasOctapoleMomentsXXZ</key>
+				<key>mepcGasOctapoleMomentsXZZ</key>
+				<key>mepcGasOctapoleMomentsYZZ</key>
+				<key>mepcGasOctapoleMomentsYYZ</key>
+				<key>mepcGasOctapoleMomentsXYZ</key>
+				<key>mepcGasTracelessOctapoleXXX</key>
+				<key>mepcGasTracelessOctapoleYYY</key>
+				<key>mepcGasTracelessOctapoleZZZ</key>
+				<key>mepcGasTracelessOctapoleXYZ</key>
+				<key>mepcGasTracelessOctapoleXYYXZZ</key>
+				<key>mepcGasTracelessOctapoleXXYYZZ</key>
+				<key>mepcGasTracelessOctapoleXXZYYZ</key>
+				<key>mepcGasHexadecapoleMomentsXXXX</key>
+				<key>mepcGasHexadecapoleMomentsYYYY</key>
+				<key>mepcGasHexadecapoleMomentsZZZZ</key>
+				<key>mepcGasHexadecapoleMomentsXXXY</key>
+				<key>mepcGasHexadecapoleMomentsXXXZ</key>
+				<key>mepcGasHexadecapoleMomentsYYYX</key>
+				<key>mepcGasHexadecapoleMomentsYYYZ</key>
+				<key>mepcGasHexadecapoleMomentsZZZX</key>
+				<key>mepcGasHexadecapoleMomentsZZZY</key>
+				<key>mepcGasHexadecapoleMomentsXXYY</key>
+				<key>mepcGasHexadecapoleMomentsXXZZ</key>
+				<key>mepcGasHexadecapoleMomentsYYZZ</key>
+				<key>mepcGasHexadecapoleMomentsXXYZ</key>
+				<key>mepcGasHexadecapoleMomentsYYXZ</key>
+				<key>mepcGasHexadecapoleMomentsZZXY</key>
+			</keys>
+			<command>^\[{&quot;mepcGasDipoleMomentsX&quot;:\s+&quot;(?P&lt;mepcGasDipoleMomentsX&gt;\S+)&quot;,\s+&quot;mepcGasDipoleMomentsY&quot;:\s+&quot;(?P&lt;mepcGasDipoleMomentsY&gt;\S+)&quot;,\s&quot;mepcGasDipoleMomentsZ&quot;:\s+&quot;(?P&lt;mepcGasDipoleMomentsZ&gt;\S+)&quot;,\s&quot;mepcGasDipoleMomentsTot&quot;:\s+&quot;(?P&lt;mepcGasDipoleMomentsTot&gt;\S+)&quot;,\s+&quot;mepcGasQuadrupoleMomentsXX&quot;:\s+&quot;(?P&lt;mepcGasQuadrupoleMomentsXX&gt;\S+)&quot;,\s&quot;mepcGasQuadrupoleMomentsYY&quot;:\s+&quot;(?P&lt;mepcGasQuadrupoleMomentsYY&gt;\S+)&quot;,\s&quot;mepcGasQuadrupoleMomentsZZ&quot;:\s+&quot;(?P&lt;mepcGasQuadrupoleMomentsZZ&gt;\S+)&quot;,\s+&quot;mepcGasQuadrupoleMomentsXY&quot;:\s+&quot;(?P&lt;mepcGasQuadrupoleMomentsXY&gt;\S+)&quot;,\s&quot;mepcGasQuadrupoleMomentsXZ&quot;:\s+&quot;(?P&lt;mepcGasQuadrupoleMomentsXZ&gt;\S+)&quot;,\s&quot;mepcGasQuadrupoleMomentsYZ&quot;:\s+&quot;(?P&lt;mepcGasQuadrupoleMomentsYZ&gt;\S+)&quot;,\s+&quot;mepcGasTracelessQuadrupoleXXYY&quot;:\s+&quot;(?P&lt;mepcGasTracelessQuadrupoleXXYY&gt;\S+)&quot;,\s&quot;mepcGasTracelessQuadrupol2ZZXXYY&quot;:\s+&quot;(?P&lt;mepcGasTracelessQuadrupol2ZZXXYY&gt;\S+)&quot;,\s&quot;mepcGasTracelessQuadrupoleXY&quot;:\s+&quot;(?P&lt;mepcGasTracelessQuadrupoleXY&gt;\S+)&quot;,\s+&quot;mepcGasTracelessQuadrupoleXZ&quot;:\s+&quot;(?P&lt;mepcGasTracelessQuadrupoleXZ&gt;\S+)&quot;,\s&quot;mepcGasTracelessQuadrupoleYZ&quot;:\s+&quot;(?P&lt;mepcGasTracelessQuadrupoleYZ&gt;\S+)&quot;,\s&quot;mepcGasOctapoleMomentsXXX&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsXXX&gt;\S+)&quot;,\s+&quot;mepcGasOctapoleMomentsYYY&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsYYY&gt;\S+)&quot;,\s&quot;mepcGasOctapoleMomentsZZZ&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsZZZ&gt;\S+)&quot;,\s&quot;mepcGasOctapoleMomentsXYY&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsXYY&gt;\S+)&quot;,\s+&quot;mepcGasOctapoleMomentsXXY&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsXXY&gt;\S+)&quot;,\s&quot;mepcGasOctapoleMomentsXXZ&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsXXZ&gt;\S+)&quot;,\s&quot;mepcGasOctapoleMomentsXZZ&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsXZZ&gt;\S+)&quot;,\s+&quot;mepcGasOctapoleMomentsYZZ&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsYZZ&gt;\S+)&quot;,\s&quot;mepcGasOctapoleMomentsYYZ&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsYYZ&gt;\S+)&quot;,\s&quot;mepcGasOctapoleMomentsXYZ&quot;:\s+&quot;(?P&lt;mepcGasOctapoleMomentsXYZ&gt;\S+)&quot;,\s+&quot;mepcGasTracelessOctapoleXXX&quot;:\s+&quot;(?P&lt;mepcGasTracelessOctapoleXXX&gt;\S+)&quot;,\s&quot;mepcGasTracelessOctapoleYYY&quot;:\s+&quot;(?P&lt;mepcGasTracelessOctapoleYYY&gt;\S+)&quot;,\s&quot;mepcGasTracelessOctapoleZZZ&quot;:\s+&quot;(?P&lt;mepcGasTracelessOctapoleZZZ&gt;\S+)&quot;,\s+&quot;mepcGasTracelessOctapoleXYZ&quot;:\s+&quot;(?P&lt;mepcGasTracelessOctapoleXYZ&gt;\S+)&quot;,\s&quot;mepcGasTracelessOctapoleXYYXZZ&quot;:\s+&quot;(?P&lt;mepcGasTracelessOctapoleXYYXZZ&gt;\S+)&quot;,\s&quot;mepcGasTracelessOctapoleXXYYZZ&quot;:\s+&quot;(?P&lt;mepcGasTracelessOctapoleXXYYZZ&gt;\S+)&quot;,\s+&quot;mepcGasTracelessOctapoleXXZYYZ&quot;:\s+&quot;(?P&lt;mepcGasTracelessOctapoleXXZYYZ&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsXXXX&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsXXXX&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsYYYY&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsYYYY&gt;\S+)&quot;,\s+&quot;mepcGasHexadecapoleMomentsZZZZ&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsZZZZ&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsXXXY&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsXXXY&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsXXXZ&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsXXXZ&gt;\S+)&quot;,\s+&quot;mepcGasHexadecapoleMomentsYYYX&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsYYYX&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsYYYZ&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsYYYZ&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsZZZX&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsZZZX&gt;\S+)&quot;,\s+&quot;mepcGasHexadecapoleMomentsZZZY&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsZZZY&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsXXYY&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsXXYY&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsXXZZ&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsXXZZ&gt;\S+)&quot;,\s+&quot;mepcGasHexadecapoleMomentsYYZZ&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsYYZZ&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsXXYZ&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsXXYZ&gt;\S+)&quot;,\s&quot;mepcGasHexadecapoleMomentsYYXZ&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsYYXZ&gt;\S+)&quot;,\s+&quot;mepcGasHexadecapoleMomentsZZXY&quot;:\s+&quot;(?P&lt;mepcGasHexadecapoleMomentsZZXY&gt;\S+)&quot;}</command>
+		</step>
+    </regex>
+    	<regex id="19"> 
+		<step>
+			<keys>
+				<key>mepcDipoleMomentsX</key>
+                <key>mepcDipoleMomentsY</key>
+                <key>mepcDipoleMomentsZ</key>
+                <key>mepcDipoleMomentsTot</key>
+                <key>mepcQuadrupoleMomentsXX</key>
+                <key>mepcQuadrupoleMomentsYY</key>
+                <key>mepcQuadrupoleMomentsZZ</key>
+                <key>mepcQuadrupoleMomentsXY</key>
+                <key>mepcQuadrupoleMomentsXZ</key>
+                <key>mepcQuadrupoleMomentsYZ</key>
+                <key>mepcTracelessQuadrupoleXXYY</key>
+                <key>mepcTracelessQuadrupol2ZZXXYY</key>
+                <key>mepcTracelessQuadrupoleXY</key>
+                <key>mepcTracelessQuadrupoleXZ</key>
+                <key>mepcTracelessQuadrupoleYZ</key>
+                <key>mepcOctapoleMomentsXXX</key>
+                <key>mepcOctapoleMomentsYYY</key>
+                <key>mepcOctapoleMomentsZZZ</key>
+                <key>mepcOctapoleMomentsXYY</key>
+                <key>mepcOctapoleMomentsXXY</key>
+                <key>mepcOctapoleMomentsXXZ</key>
+                <key>mepcOctapoleMomentsXZZ</key>
+                <key>mepcOctapoleMomentsYZZ</key>
+                <key>mepcOctapoleMomentsYYZ</key>
+                <key>mepcOctapoleMomentsXYZ</key>
+                <key>mepcTracelessOctapoleXXX</key>
+                <key>mepcTracelessOctapoleYYY</key>
+                <key>mepcTracelessOctapoleZZZ</key>
+                <key>mepcTracelessOctapoleXYZ</key>
+                <key>mepcTracelessOctapoleXYYXZZ</key>
+                <key>mepcTracelessOctapoleXXYYZZ</key>
+                <key>mepcTracelessOctapoleXXZYYZ</key>
+                <key>mepcHexadecapoleMomentsXXXX</key>
+                <key>mepcHexadecapoleMomentsYYYY</key>
+                <key>mepcHexadecapoleMomentsZZZZ</key>
+                <key>mepcHexadecapoleMomentsXXXY</key>
+                <key>mepcHexadecapoleMomentsXXXZ</key>
+                <key>mepcHexadecapoleMomentsYYYX</key>
+                <key>mepcHexadecapoleMomentsYYYZ</key>
+                <key>mepcHexadecapoleMomentsZZZX</key>
+                <key>mepcHexadecapoleMomentsZZZY</key>
+                <key>mepcHexadecapoleMomentsXXYY</key>
+                <key>mepcHexadecapoleMomentsXXZZ</key>
+                <key>mepcHexadecapoleMomentsYYZZ</key>
+                <key>mepcHexadecapoleMomentsXXYZ</key>
+                <key>mepcHexadecapoleMomentsYYXZ</key>
+                <key>mepcHexadecapoleMomentsZZXY</key> 
+			</keys>
+			<command>Moments from electrostatic potential charges:\s+Dipole Moments  \(Debye\)\s+X=(\s+|)(?P&lt;mepcDipoleMomentsX&gt;\S+)\s+Y=(\s+|)(?P&lt;mepcDipoleMomentsY&gt;\S+)\s+Z=(\s+|)(?P&lt;mepcDipoleMomentsZ&gt;\S+)\s+Tot=(\s+|)(?P&lt;mepcDipoleMomentsTot&gt;\S+)\s+Quadrupole Moments  \(Debye-Ang\)\s+XX=(\s+|)(?P&lt;mepcQuadrupoleMomentsXX&gt;\S+)\s+YY=(\s+|)(?P&lt;mepcQuadrupoleMomentsYY&gt;\S+)\s+ZZ=(\s+|)(?P&lt;mepcQuadrupoleMomentsZZ&gt;\S+)\s+XY=(\s+|)(?P&lt;mepcQuadrupoleMomentsXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mepcQuadrupoleMomentsXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mepcQuadrupoleMomentsYZ&gt;\S+)\s+Traceless (Octapole|Quadrupole) Moments  \(Debye-Ang\)\s+XX-YY=(\s+|)(?P&lt;mepcTracelessQuadrupoleXXYY&gt;\S+)\s+2ZZ-XX-YY=(\s+|)(?P&lt;mepcTracelessQuadrupol2ZZXXYY&gt;\S+)\s+XY=(\s+|)(?P&lt;mepcTracelessQuadrupoleXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mepcTracelessQuadrupoleXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mepcTracelessQuadrupoleYZ&gt;\S+)\s+(Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mepcOctapoleMomentsXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mepcOctapoleMomentsYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mepcOctapoleMomentsZZZ&gt;\S+)\s+XYY=(\s+|)(?P&lt;mepcOctapoleMomentsXYY&gt;\S+)\s+XXY=(\s+|)(?P&lt;mepcOctapoleMomentsXXY&gt;\S+)\s+XXZ=(\s+|)(?P&lt;mepcOctapoleMomentsXXZ&gt;\S+)\s+XZZ=(\s+|)(?P&lt;mepcOctapoleMomentsXZZ&gt;\S+)\s+YZZ=(\s+|)(?P&lt;mepcOctapoleMomentsYZZ&gt;\S+)\s+YYZ=(\s+|)(?P&lt;mepcOctapoleMomentsYYZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mepcOctapoleMomentsXYZ&gt;\S+)\s+Traceless (Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mepcTracelessOctapoleXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mepcTracelessOctapoleYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mepcTracelessOctapoleZZZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mepcTracelessOctapoleXYZ&gt;\S+)\s+XYY-XZZ=(\s+|)(?P&lt;mepcTracelessOctapoleXYYXZZ&gt;\S+)\s+XXY-YZZ=(\s+|)(?P&lt;mepcTracelessOctapoleXXYYZZ&gt;\S+)\s+XXZ-YYZ=(\s+|)(?P&lt;mepcTracelessOctapoleXXZYYZ&gt;\S+)\s+Hexadecapole Moments  \(Debye-Ang\*\*3\)\s+XXXX=(\s+|)(?P&lt;mepcHexadecapoleMomentsXXXX&gt;\S+)\s+YYYY=(\s+|)(?P&lt;mepcHexadecapoleMomentsYYYY&gt;\S+)\s+ZZZZ=(\s+|)(?P&lt;mepcHexadecapoleMomentsZZZZ&gt;\S+)\s+XXXY=(\s+|)(?P&lt;mepcHexadecapoleMomentsXXXY&gt;\S+)\s+XXXZ=(\s+|)(?P&lt;mepcHexadecapoleMomentsXXXZ&gt;\S+)\s+YYYX=(\s+|)(?P&lt;mepcHexadecapoleMomentsYYYX&gt;\S+)\s+YYYZ=(\s+|)(?P&lt;mepcHexadecapoleMomentsYYYZ&gt;\S+)\s+ZZZX=(\s+|)(?P&lt;mepcHexadecapoleMomentsZZZX&gt;\S+)\s+ZZZY=(\s+|)(?P&lt;mepcHexadecapoleMomentsZZZY&gt;\S+)\s+XXYY=(\s+|)(?P&lt;mepcHexadecapoleMomentsXXYY&gt;\S+)\s+XXZZ=(\s+|)(?P&lt;mepcHexadecapoleMomentsXXZZ&gt;\S+)\s+YYZZ=(\s+|)(?P&lt;mepcHexadecapoleMomentsYYZZ&gt;\S+)\s+XXYZ=(\s+|)(?P&lt;mepcHexadecapoleMomentsXXYZ&gt;\S+)\s+YYXZ=(\s+|)(?P&lt;mepcHexadecapoleMomentsYYXZ&gt;\S+)\s+ZZXY=(\s+|)(?P&lt;mepcHexadecapoleMomentsZZXY&gt;\S+)\s+</command>
+		</step>
+        	<step>
+			<keys>
+				<key>mepcDipoleMomentsX</key>
+				<key>mepcDipoleMomentsY</key>
+				<key>mepcDipoleMomentsZ</key>
+				<key>mepcDipoleMomentsTot</key>
+				<key>mepcQuadrupoleMomentsXX</key>
+				<key>mepcQuadrupoleMomentsYY</key>
+				<key>mepcQuadrupoleMomentsZZ</key>
+				<key>mepcQuadrupoleMomentsXY</key>
+				<key>mepcQuadrupoleMomentsXZ</key>
+				<key>mepcQuadrupoleMomentsYZ</key>
+				<key>mepcTracelessQuadrupoleXXYY</key>
+				<key>mepcTracelessQuadrupol2ZZXXYY</key>
+				<key>mepcTracelessQuadrupoleXY</key>
+				<key>mepcTracelessQuadrupoleXZ</key>
+				<key>mepcTracelessQuadrupoleYZ</key>
+				<key>mepcOctapoleMomentsXXX</key>
+				<key>mepcOctapoleMomentsYYY</key>
+				<key>mepcOctapoleMomentsZZZ</key>
+				<key>mepcOctapoleMomentsXYY</key>
+				<key>mepcOctapoleMomentsXXY</key>
+				<key>mepcOctapoleMomentsXXZ</key>
+				<key>mepcOctapoleMomentsXZZ</key>
+				<key>mepcOctapoleMomentsYZZ</key>
+				<key>mepcOctapoleMomentsYYZ</key>
+				<key>mepcOctapoleMomentsXYZ</key>
+				<key>mepcTracelessOctapoleXXX</key>
+				<key>mepcTracelessOctapoleYYY</key>
+				<key>mepcTracelessOctapoleZZZ</key>
+				<key>mepcTracelessOctapoleXYZ</key>
+				<key>mepcTracelessOctapoleXYYXZZ</key>
+				<key>mepcTracelessOctapoleXXYYZZ</key>
+				<key>mepcTracelessOctapoleXXZYYZ</key>
+				<key>mepcHexadecapoleMomentsXXXX</key>
+				<key>mepcHexadecapoleMomentsYYYY</key>
+				<key>mepcHexadecapoleMomentsZZZZ</key>
+				<key>mepcHexadecapoleMomentsXXXY</key>
+				<key>mepcHexadecapoleMomentsXXXZ</key>
+				<key>mepcHexadecapoleMomentsYYYX</key>
+				<key>mepcHexadecapoleMomentsYYYZ</key>
+				<key>mepcHexadecapoleMomentsZZZX</key>
+				<key>mepcHexadecapoleMomentsZZZY</key>
+				<key>mepcHexadecapoleMomentsXXYY</key>
+				<key>mepcHexadecapoleMomentsXXZZ</key>
+				<key>mepcHexadecapoleMomentsYYZZ</key>
+				<key>mepcHexadecapoleMomentsXXYZ</key>
+				<key>mepcHexadecapoleMomentsYYXZ</key>
+				<key>mepcHexadecapoleMomentsZZXY</key>
+			</keys>
+			<command>&quot;mepcDipoleMomentsX&quot;:\s+&quot;(?P&lt;mepcDipoleMomentsX&gt;\S+)&quot;,\s+&quot;mepcDipoleMomentsY&quot;:\s+&quot;(?P&lt;mepcDipoleMomentsY&gt;\S+)&quot;,\s&quot;mepcDipoleMomentsZ&quot;:\s+&quot;(?P&lt;mepcDipoleMomentsZ&gt;\S+)&quot;,\s&quot;mepcDipoleMomentsTot&quot;:\s+&quot;(?P&lt;mepcDipoleMomentsTot&gt;\S+)&quot;,\s+&quot;mepcQuadrupoleMomentsXX&quot;:\s+&quot;(?P&lt;mepcQuadrupoleMomentsXX&gt;\S+)&quot;,\s&quot;mepcQuadrupoleMomentsYY&quot;:\s+&quot;(?P&lt;mepcQuadrupoleMomentsYY&gt;\S+)&quot;,\s&quot;mepcQuadrupoleMomentsZZ&quot;:\s+&quot;(?P&lt;mepcQuadrupoleMomentsZZ&gt;\S+)&quot;,\s+&quot;mepcQuadrupoleMomentsXY&quot;:\s+&quot;(?P&lt;mepcQuadrupoleMomentsXY&gt;\S+)&quot;,\s&quot;mepcQuadrupoleMomentsXZ&quot;:\s+&quot;(?P&lt;mepcQuadrupoleMomentsXZ&gt;\S+)&quot;,\s&quot;mepcQuadrupoleMomentsYZ&quot;:\s+&quot;(?P&lt;mepcQuadrupoleMomentsYZ&gt;\S+)&quot;,\s+&quot;mepcTracelessQuadrupoleXXYY&quot;:\s+&quot;(?P&lt;mepcTracelessQuadrupoleXXYY&gt;\S+)&quot;,\s&quot;mepcTracelessQuadrupol2ZZXXYY&quot;:\s+&quot;(?P&lt;mepcTracelessQuadrupol2ZZXXYY&gt;\S+)&quot;,\s&quot;mepcTracelessQuadrupoleXY&quot;:\s+&quot;(?P&lt;mepcTracelessQuadrupoleXY&gt;\S+)&quot;,\s+&quot;mepcTracelessQuadrupoleXZ&quot;:\s+&quot;(?P&lt;mepcTracelessQuadrupoleXZ&gt;\S+)&quot;,\s&quot;mepcTracelessQuadrupoleYZ&quot;:\s+&quot;(?P&lt;mepcTracelessQuadrupoleYZ&gt;\S+)&quot;,\s&quot;mepcOctapoleMomentsXXX&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsXXX&gt;\S+)&quot;,\s+&quot;mepcOctapoleMomentsYYY&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsYYY&gt;\S+)&quot;,\s&quot;mepcOctapoleMomentsZZZ&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsZZZ&gt;\S+)&quot;,\s&quot;mepcOctapoleMomentsXYY&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsXYY&gt;\S+)&quot;,\s+&quot;mepcOctapoleMomentsXXY&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsXXY&gt;\S+)&quot;,\s&quot;mepcOctapoleMomentsXXZ&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsXXZ&gt;\S+)&quot;,\s&quot;mepcOctapoleMomentsXZZ&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsXZZ&gt;\S+)&quot;,\s+&quot;mepcOctapoleMomentsYZZ&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsYZZ&gt;\S+)&quot;,\s&quot;mepcOctapoleMomentsYYZ&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsYYZ&gt;\S+)&quot;,\s&quot;mepcOctapoleMomentsXYZ&quot;:\s+&quot;(?P&lt;mepcOctapoleMomentsXYZ&gt;\S+)&quot;,\s+&quot;mepcTracelessOctapoleXXX&quot;:\s+&quot;(?P&lt;mepcTracelessOctapoleXXX&gt;\S+)&quot;,\s&quot;mepcTracelessOctapoleYYY&quot;:\s+&quot;(?P&lt;mepcTracelessOctapoleYYY&gt;\S+)&quot;,\s&quot;mepcTracelessOctapoleZZZ&quot;:\s+&quot;(?P&lt;mepcTracelessOctapoleZZZ&gt;\S+)&quot;,\s+&quot;mepcTracelessOctapoleXYZ&quot;:\s+&quot;(?P&lt;mepcTracelessOctapoleXYZ&gt;\S+)&quot;,\s&quot;mepcTracelessOctapoleXYYXZZ&quot;:\s+&quot;(?P&lt;mepcTracelessOctapoleXYYXZZ&gt;\S+)&quot;,\s&quot;mepcTracelessOctapoleXXYYZZ&quot;:\s+&quot;(?P&lt;mepcTracelessOctapoleXXYYZZ&gt;\S+)&quot;,\s+&quot;mepcTracelessOctapoleXXZYYZ&quot;:\s+&quot;(?P&lt;mepcTracelessOctapoleXXZYYZ&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsXXXX&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsXXXX&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsYYYY&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsYYYY&gt;\S+)&quot;,\s+&quot;mepcHexadecapoleMomentsZZZZ&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsZZZZ&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsXXXY&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsXXXY&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsXXXZ&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsXXXZ&gt;\S+)&quot;,\s+&quot;mepcHexadecapoleMomentsYYYX&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsYYYX&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsYYYZ&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsYYYZ&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsZZZX&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsZZZX&gt;\S+)&quot;,\s+&quot;mepcHexadecapoleMomentsZZZY&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsZZZY&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsXXYY&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsXXYY&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsXXZZ&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsXXZZ&gt;\S+)&quot;,\s+&quot;mepcHexadecapoleMomentsYYZZ&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsYYZZ&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsXXYZ&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsXXYZ&gt;\S+)&quot;,\s&quot;mepcHexadecapoleMomentsYYXZ&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsYYXZ&gt;\S+)&quot;,\s+&quot;mepcHexadecapoleMomentsZZXY&quot;:\s+&quot;(?P&lt;mepcHexadecapoleMomentsZZXY&gt;\S+)&quot;}]$</command>
+		</step>
+    </regex>
+	<regex id="20"> 
+		<step>
+			<keys>
+				<key>mmcGasDipoleMomentsX</key>
+                <key>mmcGasDipoleMomentsY</key>
+                <key>mmcGasDipoleMomentsZ</key>
+                <key>mmcGasDipoleMomentsTot</key>
+                <key>mmcGasQuadrupoleMomentsXX</key>
+                <key>mmcGasQuadrupoleMomentsYY</key>
+                <key>mmcGasQuadrupoleMomentsZZ</key>
+                <key>mmcGasQuadrupoleMomentsXY</key>
+                <key>mmcGasQuadrupoleMomentsXZ</key>
+                <key>mmcGasQuadrupoleMomentsYZ</key>
+                <key>mmcGasTracelessQuadrupoleXXYY</key>
+                <key>mmcGasTracelessQuadrupol2ZZXXYY</key>
+                <key>mmcGasTracelessQuadrupoleXY</key>
+                <key>mmcGasTracelessQuadrupoleXZ</key>
+                <key>mmcGasTracelessQuadrupoleYZ</key>
+                <key>mmcGasOctapoleMomentsXXX</key>
+                <key>mmcGasOctapoleMomentsYYY</key>
+                <key>mmcGasOctapoleMomentsZZZ</key>
+                <key>mmcGasOctapoleMomentsXYY</key>
+                <key>mmcGasOctapoleMomentsXXY</key>
+                <key>mmcGasOctapoleMomentsXXZ</key>
+                <key>mmcGasOctapoleMomentsXZZ</key>
+                <key>mmcGasOctapoleMomentsYZZ</key>
+                <key>mmcGasOctapoleMomentsYYZ</key>
+                <key>mmcGasOctapoleMomentsXYZ</key>
+                <key>mmcGasTracelessOctapoleXXX</key>
+                <key>mmcGasTracelessOctapoleYYY</key>
+                <key>mmcGasTracelessOctapoleZZZ</key>
+                <key>mmcGasTracelessOctapoleXYZ</key>
+                <key>mmcGasTracelessOctapoleXYYXZZ</key>
+                <key>mmcGasTracelessOctapoleXXYYZZ</key>
+                <key>mmcGasTracelessOctapoleXXZYYZ</key>
+                <key>mmcGasHexadecapoleMomentsXXXX</key>
+                <key>mmcGasHexadecapoleMomentsYYYY</key>
+                <key>mmcGasHexadecapoleMomentsZZZZ</key>
+                <key>mmcGasHexadecapoleMomentsXXXY</key>
+                <key>mmcGasHexadecapoleMomentsXXXZ</key>
+                <key>mmcGasHexadecapoleMomentsYYYX</key>
+                <key>mmcGasHexadecapoleMomentsYYYZ</key>
+                <key>mmcGasHexadecapoleMomentsZZZX</key>
+                <key>mmcGasHexadecapoleMomentsZZZY</key>
+                <key>mmcGasHexadecapoleMomentsXXYY</key>
+                <key>mmcGasHexadecapoleMomentsXXZZ</key>
+                <key>mmcGasHexadecapoleMomentsYYZZ</key>
+                <key>mmcGasHexadecapoleMomentsXXYZ</key>
+                <key>mmcGasHexadecapoleMomentsYYXZ</key>
+                <key>mmcGasHexadecapoleMomentsZZXY</key> 
+			</keys>
+			<command>Moments from Mulliken charges:\s+Dipole Moments  \(Debye\)\s+X=(\s+|)(?P&lt;mmcGasDipoleMomentsX&gt;\S+)\s+Y=(\s+|)(?P&lt;mmcGasDipoleMomentsY&gt;\S+)\s+Z=(\s+|)(?P&lt;mmcGasDipoleMomentsZ&gt;\S+)\s+Tot=(\s+|)(?P&lt;mmcGasDipoleMomentsTot&gt;\S+)\s+Quadrupole Moments  \(Debye-Ang\)\s+XX=(\s+|)(?P&lt;mmcGasQuadrupoleMomentsXX&gt;\S+)\s+YY=(\s+|)(?P&lt;mmcGasQuadrupoleMomentsYY&gt;\S+)\s+ZZ=(\s+|)(?P&lt;mmcGasQuadrupoleMomentsZZ&gt;\S+)\s+XY=(\s+|)(?P&lt;mmcGasQuadrupoleMomentsXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mmcGasQuadrupoleMomentsXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mmcGasQuadrupoleMomentsYZ&gt;\S+)\s+Traceless Quadrupole Moments  \(Debye-Ang\)\s+XX-YY=(\s+|)(?P&lt;mmcGasTracelessQuadrupoleXXYY&gt;\S+)\s+2ZZ-XX-YY=(\s+|)(?P&lt;mmcGasTracelessQuadrupol2ZZXXYY&gt;\S+)\s+XY=(\s+|)(?P&lt;mmcGasTracelessQuadrupoleXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mmcGasTracelessQuadrupoleXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mmcGasTracelessQuadrupoleYZ&gt;\S+)\s+(Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mmcGasOctapoleMomentsXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mmcGasOctapoleMomentsYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mmcGasOctapoleMomentsZZZ&gt;\S+)\s+XYY=(\s+|)(?P&lt;mmcGasOctapoleMomentsXYY&gt;\S+)\s+XXY=(\s+|)(?P&lt;mmcGasOctapoleMomentsXXY&gt;\S+)\s+XXZ=(\s+|)(?P&lt;mmcGasOctapoleMomentsXXZ&gt;\S+)\s+XZZ=(\s+|)(?P&lt;mmcGasOctapoleMomentsXZZ&gt;\S+)\s+YZZ=(\s+|)(?P&lt;mmcGasOctapoleMomentsYZZ&gt;\S+)\s+YYZ=(\s+|)(?P&lt;mmcGasOctapoleMomentsYYZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mmcGasOctapoleMomentsXYZ&gt;\S+)\s+Traceless (Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mmcGasTracelessOctapoleXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mmcGasTracelessOctapoleYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mmcGasTracelessOctapoleZZZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mmcGasTracelessOctapoleXYZ&gt;\S+)\s+XYY-XZZ=(\s+|)(?P&lt;mmcGasTracelessOctapoleXYYXZZ&gt;\S+)\s+XXY-YZZ=(\s+|)(?P&lt;mmcGasTracelessOctapoleXXYYZZ&gt;\S+)\s+XXZ-YYZ=(\s+|)(?P&lt;mmcGasTracelessOctapoleXXZYYZ&gt;\S+)\s+Hexadecapole Moments  \(Debye-Ang\*\*3\)\s+XXXX=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsXXXX&gt;\S+)\s+YYYY=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsYYYY&gt;\S+)\s+ZZZZ=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsZZZZ&gt;\S+)\s+XXXY=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsXXXY&gt;\S+)\s+XXXZ=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsXXXZ&gt;\S+)\s+YYYX=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsYYYX&gt;\S+)\s+YYYZ=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsYYYZ&gt;\S+)\s+ZZZX=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsZZZX&gt;\S+)\s+ZZZY=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsZZZY&gt;\S+)\s+XXYY=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsXXYY&gt;\S+)\s+XXZZ=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsXXZZ&gt;\S+)\s+YYZZ=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsYYZZ&gt;\S+)\s+XXYZ=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsXXYZ&gt;\S+)\s+YYXZ=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsYYXZ&gt;\S+)\s+ZZXY=(\s+|)(?P&lt;mmcGasHexadecapoleMomentsZZXY&gt;\S+)\s+</command>
+		</step>
+        	<step>
+			<keys>
+				<key>mmcGasDipoleMomentsX</key>
+				<key>mmcGasDipoleMomentsY</key>
+				<key>mmcGasDipoleMomentsZ</key>
+				<key>mmcGasDipoleMomentsTot</key>
+				<key>mmcGasQuadrupoleMomentsXX</key>
+				<key>mmcGasQuadrupoleMomentsYY</key>
+				<key>mmcGasQuadrupoleMomentsZZ</key>
+				<key>mmcGasQuadrupoleMomentsXY</key>
+				<key>mmcGasQuadrupoleMomentsXZ</key>
+				<key>mmcGasQuadrupoleMomentsYZ</key>
+				<key>mmcGasTracelessQuadrupoleXXYY</key>
+				<key>mmcGasTracelessQuadrupol2ZZXXYY</key>
+				<key>mmcGasTracelessQuadrupoleXY</key>
+				<key>mmcGasTracelessQuadrupoleXZ</key>
+				<key>mmcGasTracelessQuadrupoleYZ</key>
+				<key>mmcGasOctapoleMomentsXXX</key>
+				<key>mmcGasOctapoleMomentsYYY</key>
+				<key>mmcGasOctapoleMomentsZZZ</key>
+				<key>mmcGasOctapoleMomentsXYY</key>
+				<key>mmcGasOctapoleMomentsXXY</key>
+				<key>mmcGasOctapoleMomentsXXZ</key>
+				<key>mmcGasOctapoleMomentsXZZ</key>
+				<key>mmcGasOctapoleMomentsYZZ</key>
+				<key>mmcGasOctapoleMomentsYYZ</key>
+				<key>mmcGasOctapoleMomentsXYZ</key>
+				<key>mmcGasTracelessOctapoleXXX</key>
+				<key>mmcGasTracelessOctapoleYYY</key>
+				<key>mmcGasTracelessOctapoleZZZ</key>
+				<key>mmcGasTracelessOctapoleXYZ</key>
+				<key>mmcGasTracelessOctapoleXYYXZZ</key>
+				<key>mmcGasTracelessOctapoleXXYYZZ</key>
+				<key>mmcGasTracelessOctapoleXXZYYZ</key>
+				<key>mmcGasHexadecapoleMomentsXXXX</key>
+				<key>mmcGasHexadecapoleMomentsYYYY</key>
+				<key>mmcGasHexadecapoleMomentsZZZZ</key>
+				<key>mmcGasHexadecapoleMomentsXXXY</key>
+				<key>mmcGasHexadecapoleMomentsXXXZ</key>
+				<key>mmcGasHexadecapoleMomentsYYYX</key>
+				<key>mmcGasHexadecapoleMomentsYYYZ</key>
+				<key>mmcGasHexadecapoleMomentsZZZX</key>
+				<key>mmcGasHexadecapoleMomentsZZZY</key>
+				<key>mmcGasHexadecapoleMomentsXXYY</key>
+				<key>mmcGasHexadecapoleMomentsXXZZ</key>
+				<key>mmcGasHexadecapoleMomentsYYZZ</key>
+				<key>mmcGasHexadecapoleMomentsXXYZ</key>
+				<key>mmcGasHexadecapoleMomentsYYXZ</key>
+				<key>mmcGasHexadecapoleMomentsZZXY</key>
+			</keys>
+			<command>^\[{&quot;mmcGasDipoleMomentsX&quot;:\s+&quot;(?P&lt;mmcGasDipoleMomentsX&gt;\S+)&quot;,\s+&quot;mmcGasDipoleMomentsY&quot;:\s+&quot;(?P&lt;mmcGasDipoleMomentsY&gt;\S+)&quot;,\s&quot;mmcGasDipoleMomentsZ&quot;:\s+&quot;(?P&lt;mmcGasDipoleMomentsZ&gt;\S+)&quot;,\s&quot;mmcGasDipoleMomentsTot&quot;:\s+&quot;(?P&lt;mmcGasDipoleMomentsTot&gt;\S+)&quot;,\s+&quot;mmcGasQuadrupoleMomentsXX&quot;:\s+&quot;(?P&lt;mmcGasQuadrupoleMomentsXX&gt;\S+)&quot;,\s&quot;mmcGasQuadrupoleMomentsYY&quot;:\s+&quot;(?P&lt;mmcGasQuadrupoleMomentsYY&gt;\S+)&quot;,\s&quot;mmcGasQuadrupoleMomentsZZ&quot;:\s+&quot;(?P&lt;mmcGasQuadrupoleMomentsZZ&gt;\S+)&quot;,\s+&quot;mmcGasQuadrupoleMomentsXY&quot;:\s+&quot;(?P&lt;mmcGasQuadrupoleMomentsXY&gt;\S+)&quot;,\s&quot;mmcGasQuadrupoleMomentsXZ&quot;:\s+&quot;(?P&lt;mmcGasQuadrupoleMomentsXZ&gt;\S+)&quot;,\s&quot;mmcGasQuadrupoleMomentsYZ&quot;:\s+&quot;(?P&lt;mmcGasQuadrupoleMomentsYZ&gt;\S+)&quot;,\s+&quot;mmcGasTracelessQuadrupoleXXYY&quot;:\s+&quot;(?P&lt;mmcGasTracelessQuadrupoleXXYY&gt;\S+)&quot;,\s&quot;mmcGasTracelessQuadrupol2ZZXXYY&quot;:\s+&quot;(?P&lt;mmcGasTracelessQuadrupol2ZZXXYY&gt;\S+)&quot;,\s&quot;mmcGasTracelessQuadrupoleXY&quot;:\s+&quot;(?P&lt;mmcGasTracelessQuadrupoleXY&gt;\S+)&quot;,\s+&quot;mmcGasTracelessQuadrupoleXZ&quot;:\s+&quot;(?P&lt;mmcGasTracelessQuadrupoleXZ&gt;\S+)&quot;,\s&quot;mmcGasTracelessQuadrupoleYZ&quot;:\s+&quot;(?P&lt;mmcGasTracelessQuadrupoleYZ&gt;\S+)&quot;,\s&quot;mmcGasOctapoleMomentsXXX&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsXXX&gt;\S+)&quot;,\s+&quot;mmcGasOctapoleMomentsYYY&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsYYY&gt;\S+)&quot;,\s&quot;mmcGasOctapoleMomentsZZZ&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsZZZ&gt;\S+)&quot;,\s&quot;mmcGasOctapoleMomentsXYY&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsXYY&gt;\S+)&quot;,\s+&quot;mmcGasOctapoleMomentsXXY&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsXXY&gt;\S+)&quot;,\s&quot;mmcGasOctapoleMomentsXXZ&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsXXZ&gt;\S+)&quot;,\s&quot;mmcGasOctapoleMomentsXZZ&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsXZZ&gt;\S+)&quot;,\s+&quot;mmcGasOctapoleMomentsYZZ&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsYZZ&gt;\S+)&quot;,\s&quot;mmcGasOctapoleMomentsYYZ&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsYYZ&gt;\S+)&quot;,\s&quot;mmcGasOctapoleMomentsXYZ&quot;:\s+&quot;(?P&lt;mmcGasOctapoleMomentsXYZ&gt;\S+)&quot;,\s+&quot;mmcGasTracelessOctapoleXXX&quot;:\s+&quot;(?P&lt;mmcGasTracelessOctapoleXXX&gt;\S+)&quot;,\s&quot;mmcGasTracelessOctapoleYYY&quot;:\s+&quot;(?P&lt;mmcGasTracelessOctapoleYYY&gt;\S+)&quot;,\s&quot;mmcGasTracelessOctapoleZZZ&quot;:\s+&quot;(?P&lt;mmcGasTracelessOctapoleZZZ&gt;\S+)&quot;,\s+&quot;mmcGasTracelessOctapoleXYZ&quot;:\s+&quot;(?P&lt;mmcGasTracelessOctapoleXYZ&gt;\S+)&quot;,\s&quot;mmcGasTracelessOctapoleXYYXZZ&quot;:\s+&quot;(?P&lt;mmcGasTracelessOctapoleXYYXZZ&gt;\S+)&quot;,\s&quot;mmcGasTracelessOctapoleXXYYZZ&quot;:\s+&quot;(?P&lt;mmcGasTracelessOctapoleXXYYZZ&gt;\S+)&quot;,\s+&quot;mmcGasTracelessOctapoleXXZYYZ&quot;:\s+&quot;(?P&lt;mmcGasTracelessOctapoleXXZYYZ&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsXXXX&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsXXXX&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsYYYY&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsYYYY&gt;\S+)&quot;,\s+&quot;mmcGasHexadecapoleMomentsZZZZ&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsZZZZ&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsXXXY&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsXXXY&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsXXXZ&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsXXXZ&gt;\S+)&quot;,\s+&quot;mmcGasHexadecapoleMomentsYYYX&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsYYYX&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsYYYZ&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsYYYZ&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsZZZX&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsZZZX&gt;\S+)&quot;,\s+&quot;mmcGasHexadecapoleMomentsZZZY&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsZZZY&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsXXYY&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsXXYY&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsXXZZ&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsXXZZ&gt;\S+)&quot;,\s+&quot;mmcGasHexadecapoleMomentsYYZZ&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsYYZZ&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsXXYZ&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsXXYZ&gt;\S+)&quot;,\s&quot;mmcGasHexadecapoleMomentsYYXZ&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsYYXZ&gt;\S+)&quot;,\s+&quot;mmcGasHexadecapoleMomentsZZXY&quot;:\s+&quot;(?P&lt;mmcGasHexadecapoleMomentsZZXY&gt;\S+)&quot;}</command>
+		</step>
+    </regex>
+    	<regex id="21"> 
+		<step>
+			<keys>
+				<key>mmcDipoleMomentsX</key>
+                <key>mmcDipoleMomentsY</key>
+                <key>mmcDipoleMomentsZ</key>
+                <key>mmcDipoleMomentsTot</key>
+                <key>mmcQuadrupoleMomentsXX</key>
+                <key>mmcQuadrupoleMomentsYY</key>
+                <key>mmcQuadrupoleMomentsZZ</key>
+                <key>mmcQuadrupoleMomentsXY</key>
+                <key>mmcQuadrupoleMomentsXZ</key>
+                <key>mmcQuadrupoleMomentsYZ</key>
+                <key>mmcTracelessQuadrupoleXXYY</key>
+                <key>mmcTracelessQuadrupol2ZZXXYY</key>
+                <key>mmcTracelessQuadrupoleXY</key>
+                <key>mmcTracelessQuadrupoleXZ</key>
+                <key>mmcTracelessQuadrupoleYZ</key>
+                <key>mmcOctapoleMomentsXXX</key>
+                <key>mmcOctapoleMomentsYYY</key>
+                <key>mmcOctapoleMomentsZZZ</key>
+                <key>mmcOctapoleMomentsXYY</key>
+                <key>mmcOctapoleMomentsXXY</key>
+                <key>mmcOctapoleMomentsXXZ</key>
+                <key>mmcOctapoleMomentsXZZ</key>
+                <key>mmcOctapoleMomentsYZZ</key>
+                <key>mmcOctapoleMomentsYYZ</key>
+                <key>mmcOctapoleMomentsXYZ</key>
+                <key>mmcTracelessOctapoleXXX</key>
+                <key>mmcTracelessOctapoleYYY</key>
+                <key>mmcTracelessOctapoleZZZ</key>
+                <key>mmcTracelessOctapoleXYZ</key>
+                <key>mmcTracelessOctapoleXYYXZZ</key>
+                <key>mmcTracelessOctapoleXXYYZZ</key>
+                <key>mmcTracelessOctapoleXXZYYZ</key>
+                <key>mmcHexadecapoleMomentsXXXX</key>
+                <key>mmcHexadecapoleMomentsYYYY</key>
+                <key>mmcHexadecapoleMomentsZZZZ</key>
+                <key>mmcHexadecapoleMomentsXXXY</key>
+                <key>mmcHexadecapoleMomentsXXXZ</key>
+                <key>mmcHexadecapoleMomentsYYYX</key>
+                <key>mmcHexadecapoleMomentsYYYZ</key>
+                <key>mmcHexadecapoleMomentsZZZX</key>
+                <key>mmcHexadecapoleMomentsZZZY</key>
+                <key>mmcHexadecapoleMomentsXXYY</key>
+                <key>mmcHexadecapoleMomentsXXZZ</key>
+                <key>mmcHexadecapoleMomentsYYZZ</key>
+                <key>mmcHexadecapoleMomentsXXYZ</key>
+                <key>mmcHexadecapoleMomentsYYXZ</key>
+                <key>mmcHexadecapoleMomentsZZXY</key> 
+			</keys>
+			<command>Moments from Mulliken charges:\s+Dipole Moments  \(Debye\)\s+X=(\s+|)(?P&lt;mmcDipoleMomentsX&gt;\S+)\s+Y=(\s+|)(?P&lt;mmcDipoleMomentsY&gt;\S+)\s+Z=(\s+|)(?P&lt;mmcDipoleMomentsZ&gt;\S+)\s+Tot=(\s+|)(?P&lt;mmcDipoleMomentsTot&gt;\S+)\s+Quadrupole Moments  \(Debye-Ang\)\s+XX=(\s+|)(?P&lt;mmcQuadrupoleMomentsXX&gt;\S+)\s+YY=(\s+|)(?P&lt;mmcQuadrupoleMomentsYY&gt;\S+)\s+ZZ=(\s+|)(?P&lt;mmcQuadrupoleMomentsZZ&gt;\S+)\s+XY=(\s+|)(?P&lt;mmcQuadrupoleMomentsXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mmcQuadrupoleMomentsXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mmcQuadrupoleMomentsYZ&gt;\S+)\s+Traceless Quadrupole Moments  \(Debye-Ang\)\s+XX-YY=(\s+|)(?P&lt;mmcTracelessQuadrupoleXXYY&gt;\S+)\s+2ZZ-XX-YY=(\s+|)(?P&lt;mmcTracelessQuadrupol2ZZXXYY&gt;\S+)\s+XY=(\s+|)(?P&lt;mmcTracelessQuadrupoleXY&gt;\S+)\s+XZ=(\s+|)(?P&lt;mmcTracelessQuadrupoleXZ&gt;\S+)\s+YZ=(\s+|)(?P&lt;mmcTracelessQuadrupoleYZ&gt;\S+)\s+(Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mmcOctapoleMomentsXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mmcOctapoleMomentsYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mmcOctapoleMomentsZZZ&gt;\S+)\s+XYY=(\s+|)(?P&lt;mmcOctapoleMomentsXYY&gt;\S+)\s+XXY=(\s+|)(?P&lt;mmcOctapoleMomentsXXY&gt;\S+)\s+XXZ=(\s+|)(?P&lt;mmcOctapoleMomentsXXZ&gt;\S+)\s+XZZ=(\s+|)(?P&lt;mmcOctapoleMomentsXZZ&gt;\S+)\s+YZZ=(\s+|)(?P&lt;mmcOctapoleMomentsYZZ&gt;\S+)\s+YYZ=(\s+|)(?P&lt;mmcOctapoleMomentsYYZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mmcOctapoleMomentsXYZ&gt;\S+)\s+Traceless (Octapole|Octupole) Moments  \(Debye-Ang\*\*2\)\s+XXX=(\s+|)(?P&lt;mmcTracelessOctapoleXXX&gt;\S+)\s+YYY=(\s+|)(?P&lt;mmcTracelessOctapoleYYY&gt;\S+)\s+ZZZ=(\s+|)(?P&lt;mmcTracelessOctapoleZZZ&gt;\S+)\s+XYZ=(\s+|)(?P&lt;mmcTracelessOctapoleXYZ&gt;\S+)\s+XYY-XZZ=(\s+|)(?P&lt;mmcTracelessOctapoleXYYXZZ&gt;\S+)\s+XXY-YZZ=(\s+|)(?P&lt;mmcTracelessOctapoleXXYYZZ&gt;\S+)\s+XXZ-YYZ=(\s+|)(?P&lt;mmcTracelessOctapoleXXZYYZ&gt;\S+)\s+Hexadecapole Moments  \(Debye-Ang\*\*3\)\s+XXXX=(\s+|)(?P&lt;mmcHexadecapoleMomentsXXXX&gt;\S+)\s+YYYY=(\s+|)(?P&lt;mmcHexadecapoleMomentsYYYY&gt;\S+)\s+ZZZZ=(\s+|)(?P&lt;mmcHexadecapoleMomentsZZZZ&gt;\S+)\s+XXXY=(\s+|)(?P&lt;mmcHexadecapoleMomentsXXXY&gt;\S+)\s+XXXZ=(\s+|)(?P&lt;mmcHexadecapoleMomentsXXXZ&gt;\S+)\s+YYYX=(\s+|)(?P&lt;mmcHexadecapoleMomentsYYYX&gt;\S+)\s+YYYZ=(\s+|)(?P&lt;mmcHexadecapoleMomentsYYYZ&gt;\S+)\s+ZZZX=(\s+|)(?P&lt;mmcHexadecapoleMomentsZZZX&gt;\S+)\s+ZZZY=(\s+|)(?P&lt;mmcHexadecapoleMomentsZZZY&gt;\S+)\s+XXYY=(\s+|)(?P&lt;mmcHexadecapoleMomentsXXYY&gt;\S+)\s+XXZZ=(\s+|)(?P&lt;mmcHexadecapoleMomentsXXZZ&gt;\S+)\s+YYZZ=(\s+|)(?P&lt;mmcHexadecapoleMomentsYYZZ&gt;\S+)\s+XXYZ=(\s+|)(?P&lt;mmcHexadecapoleMomentsXXYZ&gt;\S+)\s+YYXZ=(\s+|)(?P&lt;mmcHexadecapoleMomentsYYXZ&gt;\S+)\s+ZZXY=(\s+|)(?P&lt;mmcHexadecapoleMomentsZZXY&gt;\S+)\s+</command>
+		</step>
+        	<step>
+			<keys>
+				<key>mmcDipoleMomentsX</key>
+				<key>mmcDipoleMomentsY</key>
+				<key>mmcDipoleMomentsZ</key>
+				<key>mmcDipoleMomentsTot</key>
+				<key>mmcQuadrupoleMomentsXX</key>
+				<key>mmcQuadrupoleMomentsYY</key>
+				<key>mmcQuadrupoleMomentsZZ</key>
+				<key>mmcQuadrupoleMomentsXY</key>
+				<key>mmcQuadrupoleMomentsXZ</key>
+				<key>mmcQuadrupoleMomentsYZ</key>
+				<key>mmcTracelessQuadrupoleXXYY</key>
+				<key>mmcTracelessQuadrupol2ZZXXYY</key>
+				<key>mmcTracelessQuadrupoleXY</key>
+				<key>mmcTracelessQuadrupoleXZ</key>
+				<key>mmcTracelessQuadrupoleYZ</key>
+				<key>mmcOctapoleMomentsXXX</key>
+				<key>mmcOctapoleMomentsYYY</key>
+				<key>mmcOctapoleMomentsZZZ</key>
+				<key>mmcOctapoleMomentsXYY</key>
+				<key>mmcOctapoleMomentsXXY</key>
+				<key>mmcOctapoleMomentsXXZ</key>
+				<key>mmcOctapoleMomentsXZZ</key>
+				<key>mmcOctapoleMomentsYZZ</key>
+				<key>mmcOctapoleMomentsYYZ</key>
+				<key>mmcOctapoleMomentsXYZ</key>
+				<key>mmcTracelessOctapoleXXX</key>
+				<key>mmcTracelessOctapoleYYY</key>
+				<key>mmcTracelessOctapoleZZZ</key>
+				<key>mmcTracelessOctapoleXYZ</key>
+				<key>mmcTracelessOctapoleXYYXZZ</key>
+				<key>mmcTracelessOctapoleXXYYZZ</key>
+				<key>mmcTracelessOctapoleXXZYYZ</key>
+				<key>mmcHexadecapoleMomentsXXXX</key>
+				<key>mmcHexadecapoleMomentsYYYY</key>
+				<key>mmcHexadecapoleMomentsZZZZ</key>
+				<key>mmcHexadecapoleMomentsXXXY</key>
+				<key>mmcHexadecapoleMomentsXXXZ</key>
+				<key>mmcHexadecapoleMomentsYYYX</key>
+				<key>mmcHexadecapoleMomentsYYYZ</key>
+				<key>mmcHexadecapoleMomentsZZZX</key>
+				<key>mmcHexadecapoleMomentsZZZY</key>
+				<key>mmcHexadecapoleMomentsXXYY</key>
+				<key>mmcHexadecapoleMomentsXXZZ</key>
+				<key>mmcHexadecapoleMomentsYYZZ</key>
+				<key>mmcHexadecapoleMomentsXXYZ</key>
+				<key>mmcHexadecapoleMomentsYYXZ</key>
+				<key>mmcHexadecapoleMomentsZZXY</key>
+			</keys>
+			<command>&quot;mmcDipoleMomentsX&quot;:\s+&quot;(?P&lt;mmcDipoleMomentsX&gt;\S+)&quot;,\s+&quot;mmcDipoleMomentsY&quot;:\s+&quot;(?P&lt;mmcDipoleMomentsY&gt;\S+)&quot;,\s&quot;mmcDipoleMomentsZ&quot;:\s+&quot;(?P&lt;mmcDipoleMomentsZ&gt;\S+)&quot;,\s&quot;mmcDipoleMomentsTot&quot;:\s+&quot;(?P&lt;mmcDipoleMomentsTot&gt;\S+)&quot;,\s+&quot;mmcQuadrupoleMomentsXX&quot;:\s+&quot;(?P&lt;mmcQuadrupoleMomentsXX&gt;\S+)&quot;,\s&quot;mmcQuadrupoleMomentsYY&quot;:\s+&quot;(?P&lt;mmcQuadrupoleMomentsYY&gt;\S+)&quot;,\s&quot;mmcQuadrupoleMomentsZZ&quot;:\s+&quot;(?P&lt;mmcQuadrupoleMomentsZZ&gt;\S+)&quot;,\s+&quot;mmcQuadrupoleMomentsXY&quot;:\s+&quot;(?P&lt;mmcQuadrupoleMomentsXY&gt;\S+)&quot;,\s&quot;mmcQuadrupoleMomentsXZ&quot;:\s+&quot;(?P&lt;mmcQuadrupoleMomentsXZ&gt;\S+)&quot;,\s&quot;mmcQuadrupoleMomentsYZ&quot;:\s+&quot;(?P&lt;mmcQuadrupoleMomentsYZ&gt;\S+)&quot;,\s+&quot;mmcTracelessQuadrupoleXXYY&quot;:\s+&quot;(?P&lt;mmcTracelessQuadrupoleXXYY&gt;\S+)&quot;,\s&quot;mmcTracelessQuadrupol2ZZXXYY&quot;:\s+&quot;(?P&lt;mmcTracelessQuadrupol2ZZXXYY&gt;\S+)&quot;,\s&quot;mmcTracelessQuadrupoleXY&quot;:\s+&quot;(?P&lt;mmcTracelessQuadrupoleXY&gt;\S+)&quot;,\s+&quot;mmcTracelessQuadrupoleXZ&quot;:\s+&quot;(?P&lt;mmcTracelessQuadrupoleXZ&gt;\S+)&quot;,\s&quot;mmcTracelessQuadrupoleYZ&quot;:\s+&quot;(?P&lt;mmcTracelessQuadrupoleYZ&gt;\S+)&quot;,\s&quot;mmcOctapoleMomentsXXX&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsXXX&gt;\S+)&quot;,\s+&quot;mmcOctapoleMomentsYYY&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsYYY&gt;\S+)&quot;,\s&quot;mmcOctapoleMomentsZZZ&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsZZZ&gt;\S+)&quot;,\s&quot;mmcOctapoleMomentsXYY&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsXYY&gt;\S+)&quot;,\s+&quot;mmcOctapoleMomentsXXY&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsXXY&gt;\S+)&quot;,\s&quot;mmcOctapoleMomentsXXZ&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsXXZ&gt;\S+)&quot;,\s&quot;mmcOctapoleMomentsXZZ&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsXZZ&gt;\S+)&quot;,\s+&quot;mmcOctapoleMomentsYZZ&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsYZZ&gt;\S+)&quot;,\s&quot;mmcOctapoleMomentsYYZ&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsYYZ&gt;\S+)&quot;,\s&quot;mmcOctapoleMomentsXYZ&quot;:\s+&quot;(?P&lt;mmcOctapoleMomentsXYZ&gt;\S+)&quot;,\s+&quot;mmcTracelessOctapoleXXX&quot;:\s+&quot;(?P&lt;mmcTracelessOctapoleXXX&gt;\S+)&quot;,\s&quot;mmcTracelessOctapoleYYY&quot;:\s+&quot;(?P&lt;mmcTracelessOctapoleYYY&gt;\S+)&quot;,\s&quot;mmcTracelessOctapoleZZZ&quot;:\s+&quot;(?P&lt;mmcTracelessOctapoleZZZ&gt;\S+)&quot;,\s+&quot;mmcTracelessOctapoleXYZ&quot;:\s+&quot;(?P&lt;mmcTracelessOctapoleXYZ&gt;\S+)&quot;,\s&quot;mmcTracelessOctapoleXYYXZZ&quot;:\s+&quot;(?P&lt;mmcTracelessOctapoleXYYXZZ&gt;\S+)&quot;,\s&quot;mmcTracelessOctapoleXXYYZZ&quot;:\s+&quot;(?P&lt;mmcTracelessOctapoleXXYYZZ&gt;\S+)&quot;,\s+&quot;mmcTracelessOctapoleXXZYYZ&quot;:\s+&quot;(?P&lt;mmcTracelessOctapoleXXZYYZ&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsXXXX&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsXXXX&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsYYYY&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsYYYY&gt;\S+)&quot;,\s+&quot;mmcHexadecapoleMomentsZZZZ&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsZZZZ&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsXXXY&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsXXXY&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsXXXZ&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsXXXZ&gt;\S+)&quot;,\s+&quot;mmcHexadecapoleMomentsYYYX&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsYYYX&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsYYYZ&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsYYYZ&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsZZZX&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsZZZX&gt;\S+)&quot;,\s+&quot;mmcHexadecapoleMomentsZZZY&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsZZZY&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsXXYY&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsXXYY&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsXXZZ&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsXXZZ&gt;\S+)&quot;,\s+&quot;mmcHexadecapoleMomentsYYZZ&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsYYZZ&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsXXYZ&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsXXYZ&gt;\S+)&quot;,\s&quot;mmcHexadecapoleMomentsYYXZ&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsYYXZ&gt;\S+)&quot;,\s+&quot;mmcHexadecapoleMomentsZZXY&quot;:\s+&quot;(?P&lt;mmcHexadecapoleMomentsZZXY&gt;\S+)&quot;}]$</command>
+		</step>
+    </regex>
+    <regex id="23"> 
+		<step>
+			<keys>
+				<key>atom</key>
+				<key>atomId</key>
+				<key>nmrIsotropicshielding</key>
+				<key>nmrAnisotropy</key>
+			</keys>
+			<command>NMR Properties for atom\s+(?P&lt;atom&gt;\D+)(?P&lt;atomId&gt;\d+)[\S\s]*?Isotropic shielding:\s+(?P&lt;nmrIsotropicshielding&gt;\S+)[\S\s]*?Anisotropy:\s+(?P&lt;nmrAnisotropy&gt;\S+)\s+</command>
+		</step>
+    </regex> 
+    <regex id="24"> 
+		<step>
+			<keys>
+				<key>AtomicFukuis</key>
+			</keys>
+			<command>Atomic Fukui indices:\s+HOMO\s+LUMO\s+-------------------------------\s+-------------------------------\s+Atom\s+f_NN\s+f_NS\s+f_SN\s+f_SS\s+f_NN\s+f_NS\s+f_SN\s+f_SS\s+--------\s+-------\s+-------\s+-------\s+-------\s+-------\s+-------\s+-------\s+-------\s+(?P&lt;AtomicFukuis&gt;[\S\s]*?)\s+(Peak memory usage:|end of program ch)</command>
+		</step>
+		<step>
+			<keys>
+				<key>AtomFukui</key>
+			</keys>
+			<command>\[{\&quot;AtomicFukuis\&quot;: \&quot;(?P&lt;AtomFukui&gt;[\S\s]*?)\&quot;},</command>
+		</step>
+		<step>
+			<keys>
+				<key>atom</key>
+				<key>atomId</key>
+        			<key>homo_f_NN</key>
+				<key>homo_f_NS</key>
+				<key>homo_f_SN</key>
+				<key>homo_f_SS</key>
+				<key>lumo_f_NN</key>
+				<key>lumo_f_NS</key>
+				<key>lumo_f_SN</key>
+				<key>lumo_f_SS</key>
+			</keys>
+			<command>(\s+)(\&quot;|)((?P&lt;atom&gt;\D{1,2})(?P&lt;atomId&gt;\d+)\s+(?P&lt;homo_f_NN&gt;\S+)\s+(?P&lt;homo_f_NS&gt;\S+)\s+(?P&lt;homo_f_SN&gt;\S+)\s+(?P&lt;homo_f_SS&gt;\S+)\s+(?P&lt;lumo_f_NN&gt;\S+)\s+(?P&lt;lumo_f_NS&gt;\S+)\s+(?P&lt;lumo_f_SN&gt;\S+)\s+(?P&lt;lumo_f_SS&gt;\S+)(\\\\n|\&quot;}]))</command>
+		</step> 
+    </regex>
+    <regex id="25"> 
+		<step>
+			<keys>
+				<key>GeometryText</key>
+			</keys>
+			<command>Input geometry:\s+angstroms\s+atom\s+x\s+y\s+z\s+(?P&lt;GeometryText&gt;[\S\s]*?)\s+principal moments of inertia:</command>
+		</step> 
+		<step>
+			<keys>
+				<key>atom</key>
+				<key>atomId</key>
+				<key>input_X</key>
+				<key>input_Y</key>
+				<key>input_Z</key>
+			</keys>
+			<command>(?P&lt;atom&gt;[a-zA-Z]{2}|[A-Z]{1})+(?P&lt;atomId&gt;\d+)\s+(?P&lt;input_X&gt;-?(0|([1-9]\d*))(\.\d+)?)\s+(?P&lt;input_Y&gt;-?(0|([1-9]\d*))(\.\d+)?)\s+(?P&lt;input_Z&gt;-?(0|([1-9]\d*))(\.\d+)?)</command>
+		</step>
+    </regex>
+    <regex id="26"> 
+		<step>
+			<keys>
+				<key>alpha</key>
+				<key>dalpha</key>
+				<key>beta</key>
+			</keys>
+			<command>alpha(\s+|)=(\s+|)(?P&lt;alpha&gt;\S+)\s+Dalpha(\s+|)=(\s+|)(?P&lt;dalpha&gt;\S+)[\S\s]*?\s+beta(\s+|)=(\s+|)(?P&lt;beta&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="27"> 
+		<step>
+			<keys>
+				<key>pbfVersion</key>
+				<key>molecularSurface</key>
+				<key>reactionFieldEnergy</key>
+				<key>solventAccessSurface</key>
+				<key>cavityEnergy</key>
+			</keys>
+			<command>Pbf Version\s+(?P&lt;pbfVersion&gt;\S+)([\S\s]*?)Molecular surface area(\s+|):(\s+|)(?P&lt;molecularSurface&gt;\S+)\s+[\S\s]*?Reaction field energy(\s+|):(\s+|)(?P&lt;reactionFieldEnergy&gt;\S+)[\S\s]*?Solvent-accessible surface area(\s+|):(\s+|)(?P&lt;solventAccessSurface&gt;\S+)[\S\s]*?Cavity energy(\s+|):(\s+|)(?P&lt;cavityEnergy&gt;\S+)[\S\s]*?\w+</command>
+		</step>
+		<step>
+			<keys>
+				<key>pbfVersion</key>
+				<key>molecularSurface</key>
+				<key>reactionFieldEnergy</key>
+				<key>solventAccessSurface</key>
+				<key>cavityEnergy</key>
+			</keys>
+			<command>\[{\&quot;pbfVersion\&quot;:\s+\&quot;(?P&lt;pbfVersion&gt;\S+)\&quot;,\s+\&quot;molecularSurface\&quot;:\s+\&quot;(?P&lt;molecularSurface&gt;\S+)\&quot;,\s+\&quot;reactionFieldEnergy\&quot;:\s+\&quot;(?P&lt;reactionFieldEnergy&gt;\S+)\&quot;,\s+\&quot;solventAccessSurface\&quot;:\s+\&quot;(?P&lt;solventAccessSurface&gt;\S+)\&quot;,\s+\&quot;cavityEnergy\&quot;:\s+\&quot;(?P&lt;cavityEnergy&gt;\S+)\&quot;},</command>
+		</step>
+    </regex>
+</RegularExpressions>
+      
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

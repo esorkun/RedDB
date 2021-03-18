@@ -1,0 +1,136 @@
+<RegularExpressions title="optimization">
+    <regex id="1"> 
+		<step>
+			<keys>
+				<key>jobId</key>
+			</keys>
+			<command>jobid: (?P&lt;jobId&gt;.+)\s+</command>
+		</step>
+    </regex>
+	<regex id="2"> 
+        <step>
+			<keys>
+				<key>JobName</key>
+			</keys>
+			<command>(\s+)Job name:\s+(?P&lt;jobName&gt;[\S\s]*?)\s+Exe</command>
+		</step>
+    </regex>
+    <regex id="3"> 
+		<step>
+			<keys>
+				<key>basisSet</key>
+			</keys>
+			<command>basis set:\s+(?P&lt;basisSet&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    	<regex id="4"> 
+		<step>
+			<keys>
+				<key>netMolecularCharge</key>
+			</keys>
+			<command>net molecular charge:\s+(?P&lt;netMolecularCharge&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="5"> 
+		<step>
+			<keys>
+				<key>multiplicity</key>
+			</keys>
+			<command>multiplicity:\s+(?P&lt;multiplicity&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="6"> 
+		<step>
+			<keys>
+				<key>molecularWeight</key>
+			</keys>
+			<command>Molecular weight:\s+(?P&lt;molecularWeight&gt;\S+)\s+amu</command>
+		</step>
+    </regex>
+    <regex id="7"> 
+		<step>
+			<keys>
+				<key>stoichiometry</key>
+			</keys>
+			<command>Stoichiometry:\s+(?P&lt;stoichiometry&gt;\S+)\s+</command>
+		</step>
+    </regex>
+	<regex id="8"> 
+		<step>
+			<keys>
+				<key>Convergence</key>
+			</keys>
+			<command>Convergence category (?P&lt;Convergence&gt;\d+): </command>
+		</step>
+    </regex>
+    <regex id="9"> 
+		<step>
+			<keys>
+				<key>scfCalculation</key>
+				<key>dft</key>
+				<key>maxScfIterations</key>
+			</keys>
+			<command>Non-default options chosen:\s+[\S\s]*?SCF calculation type:\s+(?P&lt;scfCalculation&gt;\S+)\s+DFT\=(?P&lt;dft&gt;\S+\s+\S+)\s+[\S\s]*?Maximum number of SCF iterations:\s+(?P&lt;maxScfIterations&gt;\S+)\s+</command>
+		</step>
+    </regex>
+    <regex id="10"> 
+		<step>
+			<keys>
+				<key>GeometryText</key>
+			</keys>
+			<command>Input geometry:\s+angstroms\s+atom\s+x\s+y\s+z\s+(?P&lt;GeometryText&gt;[\S\s]*?)\s+principal moments of inertia:</command>
+		</step> 
+		<step>
+			<keys>
+				<key>atom</key>
+				<key>atomId</key>
+				<key>input_X</key>
+				<key>input_Y</key>
+				<key>input_Z</key>
+			</keys>
+			<command>(?P&lt;atom&gt;[a-zA-Z]{2}|[A-Z]{1})+(?P&lt;atomId&gt;\d+)\s+(?P&lt;input_X&gt;-?(0|([1-9]\d*))(\.\d+)?)\s+(?P&lt;input_Y&gt;-?(0|([1-9]\d*))(\.\d+)?)\s+(?P&lt;input_Z&gt;-?(0|([1-9]\d*))(\.\d+)?)</command>
+		</step>
+    </regex>
+    <regex id="11"> 
+		<step>
+			<keys>
+				<key>GeometryText</key>
+			</keys>
+			<command>final geometry:\s+angstroms\s+atom\s+x\s+y\s+z\s+(?P&lt;GeometryText&gt;[\S\s]*?)\s+principal moments of inertia:</command>
+		</step> 
+		<step>
+			<keys>
+				<key>atom</key>
+				<key>atomId</key>
+				<key>final_X</key>
+				<key>final_Y</key>
+				<key>final_Z</key>
+			</keys>
+			<command>(?P&lt;atom&gt;[a-zA-Z]{2}|[A-Z]{1})+(?P&lt;atomId&gt;\d+)\s+(?P&lt;final_X&gt;-?(0|([1-9]\d*))(\.\d+)?)\s+(?P&lt;final_Y&gt;-?(0|([1-9]\d*))(\.\d+)?)\s+(?P&lt;final_Z&gt;-?(0|([1-9]\d*))(\.\d+)?)</command>
+		</step>
+    </regex>
+    <regex id="12"> 
+        <step>
+			<keys>
+				<key>GasPhaseEnergy</key>
+				<key>GasPhaseScfIter</key>
+				<key>GasPhaseHomoEnergy</key>
+				<key>GasPhaseLumoEnergy</key>
+			</keys>
+			<command>SCFE: SCF energy: DFT\(pbe\)\s+(?P&lt;GasPhaseEnergy&gt;\S+)\s+hartrees+\s+iterations:+\s+(?P&lt;GasPhaseScfIter&gt;\d+)\s+HOMO energy:\s+(?P&lt;GasPhaseHomoEnergy&gt;\S+)\s+LUMO energy:\s+(?P&lt;GasPhaseLumoEnergy&gt;\S+)\s+</command>
+		</step>
+		<step>
+			<keys>
+				<key>GasPhaseEnergy</key>
+				<key>GasPhaseScfIter</key>
+				<key>GasPhaseHomoEnergy</key>
+				<key>GasPhaseLumoEnergy</key>
+			</keys>
+			<command>&quot;(?P&lt;GasPhaseEnergy&gt;\S+)&quot;,\s+&quot;GasPhaseScfIter&quot;:\s+&quot;(?P&lt;GasPhaseScfIter&gt;\d*)&quot;,\s&quot;GasPhaseHomoEnergy&quot;:\s+&quot;(?P&lt;GasPhaseHomoEnergy&gt;\S+)&quot;,\s&quot;GasPhaseLumoEnergy&quot;:\s+&quot;(?P&lt;GasPhaseLumoEnergy&gt;\S+)&quot;}]$</command>
+		</step>
+    </regex>
+</RegularExpressions>
+
+
+
+

@@ -1,0 +1,32 @@
+<RegularExpressions title="pair-file-format">
+	<regex id="1"> 
+        <step>
+			<keys>
+				<key>parent</key>
+				<key>parentGivenId</key>
+				<key>calcType</key>
+				<key>calcNumber</key>
+				<key>h</key>
+				<key>funcGroup</key>
+				<key>reac</key>
+			</keys>
+			<command>.+\\pair\\(?P&lt;parent&gt;.+)\\((?P&lt;parentGivenId&gt;\d+)-(?P&lt;calcType&gt;\S+)=(?P&lt;calcNumber&gt;\d+)-H=(?P&lt;h&gt;\d+)-Func=(?P&lt;funcGroup&gt;\S+))-Reac=(?P&lt;reac&gt;\S+).smi</command>
+		</step>
+    </regex>
+    <regex id="2"> 
+        <step>
+			<keys>
+				<key>smilesFileName</key>
+			</keys>
+			<command>.+\\pair\\(.+)\\(?P&lt;smilesFileName&gt;\S+).smi</command>
+		</step>
+    </regex>
+    <regex id="3"> 
+        <step>
+			<keys>
+				<key>smilesFilePath</key>
+			</keys>
+			<command>(?P&lt;smilesFilePath&gt;\S+)</command>
+		</step>
+    </regex>
+</RegularExpressions>
