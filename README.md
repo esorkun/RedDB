@@ -1,1 +1,2 @@
 # RedDB
+**RedDB is a computational database covers a focused chemical space of two classes of organic molecules that have found to be very promising in aqueous RFBs, namely, quinones and aza-aromatics. RedDB is generated using simulation tools from cheminformatics, molecular mechanics and quantum chemistry. It contains several physicochemical properties of candidate molecules that are relevant to their function as electroactive materials in RFBs, and thus can be employed as descriptors for screening. (2020-11-15)**
